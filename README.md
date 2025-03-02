@@ -23,3 +23,4 @@ This will symlink the dotfiles to their appropriate locations as specified in `i
 
 - `zsh` - Zsh configuration files
 - `config/` - anyhing that goes in `~/.config/`
+  - In this case, it's the configuration for Sketchybar, and JankyBorders

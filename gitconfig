@@ -1,0 +1,13 @@
+[user]
+	email = 38956787+bvdwalt@users.noreply.github.com
+	name = Barend van der Walt
+	signingkey = DFB0F7B1392E3C35EE87FDBD194CAD8E9DCBCB16
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[gpg]
+	program = gpg

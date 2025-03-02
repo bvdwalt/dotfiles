@@ -1,0 +1,5 @@
+# echo "setting up custom aliases"
+alias gdm="git diff origin/main..."
+alias gs="git status"
+alias ls="ls -la"
+alias cd..="cd .."

@@ -1,4 +1,5 @@
 PLUGIN_DIR="$CONFIG_DIR/plugins"
+FONT_FACE="JetbrainsMono Nerd Font"
 
 bar=(
   height=30
@@ -7,16 +8,16 @@ bar=(
   sticky=off
   padding_left=10
   padding_right=10
-  color=0x15ffffff
-)
+  color=0x10ffffff
+)¡
 
 sketchybar --bar "${bar[@]}"
 
 default=(
   padding_left=5
   padding_right=5
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  icon.font="$FONT_FACE:Bold:17.0"
+  label.font="$FONT_FACE:Bold:14.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -38,7 +39,7 @@ for sid in $(aerospace list-workspaces --all); do
         background.drawing=false \
         label="$sid" \
         click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+        script="$PLUGIN_DIR/aerospace.sh $sid"
 done
 
 ##### Adding Left Items #####

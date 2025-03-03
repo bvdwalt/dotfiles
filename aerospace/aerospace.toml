@@ -28,7 +28,7 @@ automatically-unhide-macos-hidden-apps = true
     inner.vertical =   5
     outer.left =       5
     outer.bottom =     5
-    outer.top =        27
+    outer.top =        0
     outer.right =      5
 
 # 'main' binding mode declaration
@@ -58,12 +58,14 @@ automatically-unhide-macos-hidden-apps = true
     alt-s = 'workspace 2'
     alt-d = 'workspace 3'
     alt-f = 'workspace 4'
+    alt-g = 'workspace 5'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-a = 'move-node-to-workspace 1'
     alt-shift-s = 'move-node-to-workspace 2'
     alt-shift-d = 'move-node-to-workspace 3'
     alt-shift-f = 'move-node-to-workspace 4'
+    alt-shift-g = 'move-node-to-workspace 5'
 
     alt-tab = 'workspace-back-and-forth'
 

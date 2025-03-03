@@ -26,3 +26,5 @@ source ~/.custom_aliases
 
 export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+eval "$(starship init zsh)"

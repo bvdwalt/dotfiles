@@ -8,14 +8,14 @@ bar=(
   sticky=off
   padding_left=10
   padding_right=10
-  color=0x10ffffff
+  color=0xffffffff
 )¡
 
 sketchybar --bar "${bar[@]}"
 
 default=(
-  padding_left=5
-  padding_right=5
+  padding_left=2
+  padding_right=2
   icon.font="$FONT_FACE:Bold:17.0"
   label.font="$FONT_FACE:Bold:14.0"
   icon.color=0xffffffff
@@ -33,10 +33,6 @@ for sid in $(aerospace list-workspaces --all); do
     sketchybar --add item space.$sid left \
         --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \
-        background.color=0x44ffffff \
-        background.corner_radius=20 \
-        background.height=20 \
-        background.drawing=false \
         label="$sid" \
         click_script="aerospace workspace $sid" \
         script="$PLUGIN_DIR/aerospace.sh $sid"
@@ -58,7 +54,7 @@ sketchybar --add item chevron left \
 # https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --set clock update_freq=30 script="$PLUGIN_DIR/clock.sh" \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \

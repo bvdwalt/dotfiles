@@ -298,17 +298,23 @@ wezterm.on('update-right-status', function(window)
 end)
 
 -- KEY BINDINGS:
--- config.disable_default_key_bindings = true -- not needed
 config.keys = {
+  -- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
   {
     key = 'LeftArrow',
-    mods = 'OPT|CMD',
-    action = act.ActivateTabRelative(-1),
+    mods = 'OPT',
+    action = act.SendKey {
+      key = 'b',
+      mods = 'ALT',
+    },
   },
   {
     key = 'RightArrow',
-    mods = 'OPT|CMD',
-    action = act.ActivateTabRelative(1),
+    mods = 'OPT',
+    action = act.SendKey {
+      key = 'f',
+      mods = 'ALT'
+    },
   },
 }
 

@@ -316,6 +316,16 @@ config.keys = {
       mods = 'ALT'
     },
   },
+  -- Clears the scrollback and viewport, and then sends CTRL-L to ask the
+  -- shell to redraw its prompt
+  {
+    key = 'k',
+    mods = 'SUPER',
+    action = act.Multiple {
+      act.ClearScrollback 'ScrollbackAndViewport',
+      act.SendKey { key = 'L', mods = 'CTRL' },
+    },
+  },
 }
 
 -- and finally, return the configuration to wezterm

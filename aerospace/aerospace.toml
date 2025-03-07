@@ -101,6 +101,11 @@ automatically-unhide-macos-hidden-apps = true
 
 # On window detected rules for specific apps
 
+# 1Password
+[[on-window-detected]]
+    if.app-id = 'com.1password.1password'
+    run = 'layout floating'
+
 # Apple
 # Finder
 [[on-window-detected]]

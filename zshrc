@@ -19,6 +19,9 @@ export ARCHFLAGS="-arch $(uname -m)"
 # source things
 source $ZSH/oh-my-zsh.sh
 source ~/.custom_aliases
+if [[ -f ~/.extra_env_vars ]]; then
+  source ~/.extra_env_vars
+fi
 
 export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
 
@@ -29,3 +32,9 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 
 # Starship prompt init
 eval "$(starship init zsh)"
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(~/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

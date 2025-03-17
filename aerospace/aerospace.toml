@@ -11,7 +11,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 45
+accordion-padding = 25
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -99,11 +99,56 @@ automatically-unhide-macos-hidden-apps = true
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
-# On window detected rules for specific apps
+# -------------------- On aerospace startup window detected rules for specific apps --------------------
+# run `aerospace list-apps` to see the app-ids.
+# Slack
+[[on-window-detected]]
+    if.during-aerospace-startup = true
+    check-further-callbacks = true
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = ['move-node-to-workspace 1']
+
+# Steam
+[[on-window-detected]]
+    if.during-aerospace-startup = true
+    check-further-callbacks = true
+    if.app-id = 'com.valvesoftware.steam'
+    run = ['move-node-to-workspace 5']
+
+# Linear
+[[on-window-detected]]
+    if.during-aerospace-startup = true
+    check-further-callbacks = true
+    if.app-id = 'com.linear'
+    run = ['move-node-to-workspace 3']
+
+# Spotify
+[[on-window-detected]]
+    if.during-aerospace-startup = true
+    check-further-callbacks = true
+    if.app-id = 'com.spotify.client'
+    run = ['move-node-to-workspace 3']
+
+# -------------------- On window detected rules for specific apps --------------------
+
+# Canary Mail
+[[on-window-detected]]
+    if.app-id = 'io.canarymail.mac'
+    run = 'layout floating'
+
+# Shottr (screenshot tool)
+[[on-window-detected]]
+    if.app-id = 'cc.ffitch.shottr'
+    run = 'layout floating'
 
 # 1Password
 [[on-window-detected]]
     if.app-id = 'com.1password.1password'
+    run = 'layout floating'
+
+# Notion Calendar
+[[on-window-detected]]
+    if.app-id = 'com.cron.electron'
     run = 'layout floating'
 
 # Apple

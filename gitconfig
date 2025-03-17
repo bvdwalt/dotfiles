@@ -15,3 +15,5 @@
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [gpg]
 	format = ssh
+[fetch]
+	prune = true

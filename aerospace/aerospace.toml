@@ -18,7 +18,7 @@ default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
-automatically-unhide-macos-hidden-apps = true
+# automatically-unhide-macos-hidden-apps = true
 
 [key-mapping]
     preset = 'qwerty'
@@ -73,8 +73,8 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-rightSquareBracket = 'move-workspace-to-monitor next --wrap-around'
     alt-shift-leftSquareBracket = 'move-workspace-to-monitor prev --wrap-around'
 
-    cmd-h = [] # Disable "hide application"
-    cmd-alt-h = [] # Disable "hide others"
+    # cmd-h = [] # Disable "hide application"
+    # cmd-alt-h = [] # Disable "hide others"
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'

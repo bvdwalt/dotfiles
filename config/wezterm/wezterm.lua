@@ -153,7 +153,7 @@ config.font_rules = {
 
 config.font_size = 12
 
-local scheme = "Catppuccin"
+local scheme = "Catppuccin Macchiato"
 
 local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
 

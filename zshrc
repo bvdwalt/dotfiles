@@ -23,7 +23,7 @@ if [[ -f ~/.extra_env_vars ]]; then
   source ~/.extra_env_vars
 fi
 
-export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
+export PATH="/opt/homebrew/opt/dotnet-sdk/bin:$PATH"
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
@@ -38,3 +38,6 @@ fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

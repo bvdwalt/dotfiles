@@ -41,3 +41,4 @@ compinit
 
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"

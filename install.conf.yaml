@@ -9,6 +9,7 @@
     ~/.zshrc: zshrc
     ~/.custom_aliases: custom_aliases
     ~/.aerospace.toml: aerospace/aerospace.toml
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.config/:
       glob: true
       path: config/*

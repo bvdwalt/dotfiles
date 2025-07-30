@@ -173,3 +173,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     if.app-id = 'com.apple.Passwords'
     run = 'layout floating'
 
+# Generic Picture-in-Picture windows for all apps
+[[on-window-detected]]
+    if.window-title-regex-substring = '(Picture-in-Picture|PiP)'
+    run = 'layout floating'
+

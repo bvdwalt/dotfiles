@@ -30,9 +30,6 @@ export PATH="/opt/homebrew/opt/dotnet-sdk/bin:$PATH"
 # 1Password SSH config
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# Starship prompt init
-eval "$(starship init zsh)"
-
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
@@ -42,3 +39,4 @@ compinit
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export PATH=$PATH:~/go/bin

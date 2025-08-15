@@ -28,6 +28,9 @@ set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/age
 source ~/.custom_aliases
 source ~/.extra_env_vars
 
+# zoxide init command for a better cd
+zoxide init fish | source
+
 # Interactive session specific commands
 if status is-interactive
     # kubectl completion (if kubectl is available)

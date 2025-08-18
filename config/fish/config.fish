@@ -25,6 +25,9 @@ fish_add_path ~/go/bin
 # 1Password SSH configuration
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
+# GitHub Golang private repository setup
+set GOPRIVATE github.com/hadriansecurity/*
+
 source ~/.custom_aliases
 source ~/.extra_env_vars
 

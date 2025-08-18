@@ -63,6 +63,7 @@ local process_icons = { -- for get_process function
 	["cargo"] = wezterm.nerdfonts.dev_rust,
 	["sudo"] = wezterm.nerdfonts.fa_hashtag,
 	["lazydocker"] = wezterm.nerdfonts.linux_docker,
+	["lazygit"] = wezterm.nerdfonts.dev_git,
 	["git"] = wezterm.nerdfonts.dev_git,
 	["lua"] = wezterm.nerdfonts.seti_lua,
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
@@ -186,7 +187,7 @@ config.initial_rows = 45
 
 -- TABBAR:
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = false
 

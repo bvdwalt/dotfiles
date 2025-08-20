@@ -1,20 +1,16 @@
 # Dotfiles Repository
 
-This repository is for my personal use of storing and managing my dotfiles. It includes configurations for:
-
-- Zsh
-- Aerospace Tiling Window Manager
-- Sketchybar
-- JankyBorders 
+This repository is for my personal use of storing and managing my dotfiles. 
 
 ## Installation
 
-This repository uses [Dotbot](https://github.com/anishathalye/dotbot) to manage the placement of dotfiles on the system. The configuration for Dotbot is specified in `install.conf.yaml`.
+This repository uses [Chezmoi](https://github.com/twpayne/chezmoi).
 
-To install the dotfiles, run the following command:
+To apply all of the dotfiles run the following:
 
 ```sh
-./install
+chezmoi diff
+chezmoi apply
 ```
 
 This will symlink the dotfiles to their appropriate locations as specified in `install.conf.yaml`.

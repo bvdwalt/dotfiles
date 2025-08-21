@@ -25,7 +25,6 @@
         "tray",
         "battery",
         "wireplumber",
-        "network",
         "clock#date",
         "custom/power",
     ],
@@ -54,14 +53,6 @@
         ]
     },
 
-    "network": {
-      "interface": "wlan0",  // Replace with your actual Wi-Fi interface
-      "format": "{essid} ({signalStrength}%) ",
-      "format-disconnected": "Disconnected",
-      "tooltip-format": "{essid} ({signalStrength}%)",
-      "on-click": "nmcli device wifi list"  // Command to list available Wi-Fi networks
-    },
-    
     "custom/pacman": {
         "format": "<big>􏆲</big>  {}",
         "interval": 3600,                     // every hour

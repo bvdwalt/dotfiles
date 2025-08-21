@@ -1,0 +1,9 @@
+packages:
+  darwin:
+    brews:
+    - 'fish'
+    - 'git'
+    - 'jq'
+    - 'zoxide'
+    casks:
+    - 'aerospace'

@@ -5,7 +5,7 @@ set -gx LANG en_US.utf8
 if test -n "$SSH_CONNECTION"
     set -gx EDITOR nano
 else
-    set -gx EDITOR code
+    set -gx EDITOR nvim
 end
 
 # Architecture flags

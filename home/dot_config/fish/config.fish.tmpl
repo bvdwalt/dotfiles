@@ -13,8 +13,8 @@ set -gx ARCHFLAGS "-arch (uname -m)"
 # GitHub Golang private repository setup
 set -gx GOPRIVATE "github.com/hadriansecurity/*"
 
-source ~/.custom_aliases
-source ~/.extra_env_vars
+test -f ~/.custom_aliases; and source ~/.custom_aliases
+test -f ~/.extra_env_vars; and source ~/.extra_env_vars
 
 {{ if eq .chezmoi.os "linux" -}}
 source /usr/share/cachyos-fish-config/cachyos-config.fish

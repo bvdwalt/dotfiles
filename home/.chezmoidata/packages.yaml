@@ -1,9 +1,40 @@
 packages:
+  linux:
+    arch:
+      # pacman -Qqet
+      pacman:
+        - "paru"
+      # pacman -Qqm
+      paru:
+        - "fish"
+        - "git"
+        - "jq"
+        - "go"
+        - "chezmoi"
+        - "zoxide"
+        - "nvim"
+        - "lazygit"
+        - "gnome-keyring"
+        - "seahorse"
+        - "zen-browser-bin"
+        - "hyprpaper"
+        - "hyprlock"
+        - "github-cli"
+        - "1password"
+        - "1password-cli"
+        - "blueberry"
+        - "swayidle"
+        - "dolphin"
   darwin:
     brews:
-    - 'fish'
-    - 'git'
-    - 'jq'
-    - 'zoxide'
+      - "fish"
+      - "git"
+      - "jq"
+      - "zoxide"
+      - "chezmoi"
+      - "lazygit"
+      - "gh"
     casks:
-    - 'aerospace'
+      - "aerospace"
+      - "1password"
+      - "1password-cli"

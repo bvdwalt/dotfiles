@@ -2,7 +2,7 @@
 	email = 38956787+bvdwalt@users.noreply.github.com
 	name = Barend van der Walt
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBmGQ5TcQ5/slPQr76QAxcVi7eKEQynA4aYjVoQsyQ9/
-[init]
+[init] 
 	defaultBranch = main
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -12,7 +12,11 @@
 [commit]
 	gpgsign = true
 [gpg "ssh"]
+{{ if eq .chezmoi.os "darwin" -}}
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{ else if eq .chezmoi.os "linux" -}}
 	program = "/opt/1Password/op-ssh-sign"
+{{ end -}}
 [gpg]
 	format = ssh
 [fetch]

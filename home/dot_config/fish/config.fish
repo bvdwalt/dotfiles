@@ -1,15 +1,5 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
-
-zoxide init fish | source
-
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
 # Language settings
 set -gx LANG en_US.utf8
-
 # Editor configuration
 if test -n "$SSH_CONNECTION"
     set -gx EDITOR nano
@@ -20,6 +10,18 @@ end
 # Architecture flags
 set -gx ARCHFLAGS "-arch (uname -m)"
 
+# GitHub Golang private repository setup
+set -gx GOPRIVATE "github.com/hadriansecurity/*"
+
+source ~/.custom_aliases
+source ~/.extra_env_vars
+
+{{ if eq .chezmoi.os "linux" -}}
+source /usr/share/cachyos-fish-config/cachyos-config.fish
+{{ end -}}
+
+
+{{ if eq .chezmoi.os "darwin" -}}
 # PATH configuration for Homebrew and other tools
 # Add Homebrew to PATH first
 fish_add_path /opt/homebrew/bin
@@ -33,15 +35,6 @@ fish_add_path ~/go/bin
 
 # 1Password SSH configuration
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
-# GitHub Golang private repository setup
-set -gx GOPRIVATE "github.com/hadriansecurity/*"
-
-source ~/.custom_aliases
-source ~/.extra_env_vars
-
-# zoxide init command for a better cd
-zoxide init fish | source
 
 # Interactive session specific commands
 if status is-interactive
@@ -61,3 +54,7 @@ if status is-interactive
         end
     end
 end
+{{ end -}}
+
+# zoxide init command for a better cd
+zoxide init fish | source

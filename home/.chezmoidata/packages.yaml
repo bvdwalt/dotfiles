@@ -33,8 +33,8 @@ packages:
       - "zoxide"
       - "chezmoi"
       - "lazygit"
-      - "github-cli"
-      - "1password"
-      - "1password-cli"
+      - "gh"
     casks:
       - "aerospace"
+      - "1password"
+      - "1password-cli"

@@ -13,6 +13,8 @@ packages:
         - 'chezmoi'
         - 'nvim'
         - 'lazygit'
+        - 'gnome-keyring'
+        - 'seahorse'
         - 'zen-browser-bin'
         - 'hyprpaper'
         - 'hyprlock'

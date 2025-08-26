@@ -1,0 +1,25 @@
+packages:
+  linux:
+    arch:
+      # pacman -Qqet
+      pacman:
+        - 'paru'
+      # pacman -Qqm
+      paru:
+        - 'fish'
+        - 'git'
+        - 'jq'
+        - 'go'
+        - 'chezmoi'
+        - 'nvim'
+        - 'lazygit'
+        - 'zen-browser-bin'
+        - 'hyprpaper'
+        - 'hyprlock'
+        - 'zoxide'
+        - 'github-cli'
+        - '1password'
+        - '1password-cli'
+        - 'blueberry'
+        - 'swayidle'
+        - 'dolphin'

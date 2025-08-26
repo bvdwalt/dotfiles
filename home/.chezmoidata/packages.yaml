@@ -25,3 +25,11 @@ packages:
         - 'blueberry'
         - 'swayidle'
         - 'dolphin'
+  darwin:
+    brews:
+    - 'fish'
+    - 'git'
+    - 'jq'
+    - 'zoxide'
+    casks:
+    - 'aerospace'

@@ -2,9 +2,9 @@
 #!/bin/bash
 
 echo "installing pacman packages"
-sudo pacman -S --needed {{ join .packages.linux.arch.pacman " " }}
+sudo pacman -S --needed{{ range .packages.linux.arch.pacman }} {{ . }}{{ end }}
 
 echo "installing paru packages"
-paru -S --needed {{ join .packages.linux.arch.paru " " }}
+paru -S --needed{{ range .packages.linux.arch.paru }} {{ . }}{{ end }}
 
 {{ end -}}

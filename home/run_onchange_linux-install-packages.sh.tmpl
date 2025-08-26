@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+echo "installing pacman packages"
+{{ range .packages.linux.arch.pacman -}}
+sudo pacman -S --needed {{ . | quote }}
+{{ end -}}
+
+echo "installing paru packages"
+{{ range .packages.linux.arch.paru -}}
+paru -S --needed {{ . | quote }}
+{{ end -}}
+
+{{ end -}}

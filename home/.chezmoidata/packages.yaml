@@ -25,6 +25,7 @@ packages:
         - "blueberry"
         - "swayidle"
         - "dolphin"
+        - "yazi"
   darwin:
     brews:
       - "fish"
@@ -34,6 +35,7 @@ packages:
       - "chezmoi"
       - "lazygit"
       - "gh"
+      - "yazi"
     casks:
       - "aerospace"
       - "1password"

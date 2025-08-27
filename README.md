@@ -12,11 +12,7 @@ To apply all of the dotfiles run the following:
 chezmoi diff
 chezmoi apply
 ```
-
-This will symlink the dotfiles to their appropriate locations as specified in `install.conf.yaml`.
-
-## Structure
-
-- `zsh` - Zsh configuration files
-- `config/` - anyhing that goes in `~/.config/`
-  - In this case, it's the configuration for Sketchybar, and JankyBorders
+or just run to apply without showing the difference first
+```sh
+chezmoi update
+```

@@ -15,6 +15,7 @@ packages:
         - "nvim"
         - "lazygit"
         - "gnome-keyring"
+        - "gnome-boxes"
         - "seahorse"
         - "zen-browser-bin"
         - "hyprpaper"

@@ -1,0 +1,15 @@
+{{ if ne .chezmoi.os "darwin" }}
+darwin-install-packages.sh
+.config/borders/**
+.config/sketchybar/**
+.config/starship.toml
+.config/aerospace.toml
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+linux-install-packages.sh
+.config/hypr/**
+.config/waybar/**
+.config/wlogout/**
+.config/wofi/**
+.config/rofi/**
+{{ end }}

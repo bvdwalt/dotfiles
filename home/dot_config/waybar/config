@@ -23,6 +23,7 @@
     ],
     "modules-right": [
         "tray",
+        "hyprland/language",
         "battery",
         "wireplumber",
         "clock#date",
@@ -127,5 +128,9 @@
     "tray": {
         "icon-size": 15,
         "spacing": 5
+    },
+
+    "hyprland/language": {
+      "format": "Lang: {short}",
     }
 }

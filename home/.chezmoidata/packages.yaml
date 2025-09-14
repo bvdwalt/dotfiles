@@ -10,18 +10,19 @@ packages:
         - "git"
         - "jq"
         - "go"
-        - "chezmoi"
-        - "zoxide"
+        - "chezmoi" # dotfile manager
+        - "zoxide" # better cd
         - "nvim"
-        - "solaar"
+        - "solaar" # Logitech Options alternative
         - "lazygit"
         - "lazydocker"
         - "gnome-keyring"
         - "gnome-boxes"
         - "seahorse"
         - "zen-browser-bin"
-        - "hyprpaper"
-        - "hyprlock"
+        - "hyprpaper" # wallpaper manager
+        - "hyprlock" # lockscreen manager
+        - "hyprsunset" # blue light filter
         - "github-cli"
         - "1password"
         - "1password-cli"

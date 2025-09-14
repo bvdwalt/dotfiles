@@ -20,6 +20,8 @@ test -f ~/.extra_env_vars; and source ~/.extra_env_vars
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 {{ end -}}
 
+# Add cargo/bin for rust
+fish_add_path ~/.cargo/bin
 
 {{ if eq .chezmoi.os "darwin" -}}
 # PATH configuration for Homebrew and other tools

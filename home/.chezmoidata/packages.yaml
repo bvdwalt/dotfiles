@@ -10,6 +10,8 @@ packages:
         - "git"
         - "jq"
         - "go"
+        - "tailscale"
+        - "visual-studio-code-bin"
         - "chezmoi" # dotfile manager
         - "zoxide" # better cd
         - "nvim"

@@ -40,9 +40,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
+    alt-left = 'focus left'
     alt-j = 'focus down'
+    alt-down = 'focus down'
     alt-k = 'focus up'
+    alt-up = 'focus up'
     alt-l = 'focus right'
+    alt-right = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'

@@ -18,19 +18,19 @@ packages:
         - "solaar" # Logitech Options alternative
         - "lazygit"
         - "lazydocker"
-        - "gnome-keyring"
-        - "gnome-boxes"
-        - "seahorse"
+        # - "gnome-keyring"
+        # - "gnome-boxes"
+        # - "seahorse"
         - "zen-browser-bin"
-        - "hyprpaper" # wallpaper manager
-        - "hyprlock" # lockscreen manager
-        - "hyprsunset" # blue light filter
+        # - "hyprpaper" # wallpaper manager
+        # - "hyprlock" # lockscreen manager
+        # - "hyprsunset" # blue light filter
         - "github-cli"
         - "1password"
         - "1password-cli"
         - "blueberry"
-        - "swayidle"
-        - "dolphin"
+        # - "swayidle"
+        # - "dolphin"
         - "yazi"
   darwin:
     brews:

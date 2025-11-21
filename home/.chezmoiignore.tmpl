@@ -5,9 +5,11 @@ darwin-install-packages.sh
 .config/starship.toml
 .aerospace.toml
 {{ end }}
-{{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch") }}
+{{ if ne .chezmoi.os "linux" }}
 linux-install-packages.sh
 .config/fastfetch/**
+{{ end }}
+{{ if ne .chezmoi.osRelease.id "arch" }}
 .config/hypr/**
 .config/waybar/**
 .config/wlogout/**

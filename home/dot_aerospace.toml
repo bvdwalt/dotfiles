@@ -39,6 +39,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-z = 'exec-and-forget open -a /Applications/Zen.app'
     alt-s = 'exec-and-forget open -a /Applications/Slack.app'
     alt-c = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'
+    alt-r = 'exec-and-forget open -a /Applications/Rider.app'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'

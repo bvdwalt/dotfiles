@@ -1,21 +1,44 @@
+{{- $archFiles := list
+  "arch-install-packages.sh"
+  ".config/hypr/**"
+  ".config/waybar/**"
+  ".config/wlogout/**"
+  ".config/wofi/**"
+  ".config/rofi/**"
+-}}
+
+{{- $darwinFiles := list
+  "darwin-install-packages.sh"
+  ".config/borders/**"
+  ".config/sketchybar/**"
+  ".config/starship.toml"
+  ".aerospace.toml"
+-}}
+
+{{/* Ignore Darwin files on non-macOS systems */}}
 {{ if ne .chezmoi.os "darwin" }}
-darwin-install-packages.sh
-.config/borders/**
-.config/sketchybar/**
-.config/starship.toml
-.aerospace.toml
+{{ range $darwinFiles }}
+{{ . }}
 {{ end }}
+{{- end }}
+
+{{/* Ignore Linux files on non-Linux systems */}}
 {{ if ne .chezmoi.os "linux" }}
+fedora-install-packages.sh
 .config/fastfetch/**
-.config/hypr/**
-.config/waybar/**
-.config/wlogout/**
-.config/wofi/**
-.config/rofi/**
+{{ range $archFiles }}
+{{ . }}
 {{ end }}
+{{- end }}
+
+{{/* Ignore Fedora files on non-Fedora Linux systems */}}
 {{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
 fedora-install-packages.sh
 {{ end }}
-{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")}}
-linux-install-packages.sh
+
+{{/* Ignore Arch files on non-Arch Linux systems */}}
+{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch") }}
+{{ range $archFiles }}
+{{ . }}
 {{ end }}
+{{- end }}

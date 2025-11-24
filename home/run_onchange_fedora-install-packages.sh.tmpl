@@ -1,6 +1,9 @@
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 #!/bin/bash
 
+echo "Enabling COPR repositories"
+sudo dnf copr enable {{ range .packages.linux.fedoraCOPRRepositories }} {{ . }} {{end}}
+
 echo "installing DNF packages"
 sudo dnf install -y{{ range .packages.linux.fedora }} {{ . }}{{ end }}
 {{ end -}}

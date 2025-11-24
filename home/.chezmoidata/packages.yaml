@@ -1,11 +1,15 @@
 packages:
   linux:
+    fedoraCOPRRepositories:
+      - "atim/lazydocker"
+      - "dejan/lazygit"
+      - "sneexy/zen-browser"
     fedora:
       - "1password-cli"
       - "1password"
       - "fish"
       - "git"
-      - "github-cli"
+      - "gh" # Github CLI
       - "go"
       - "jq"
       - "lazydocker"
@@ -13,8 +17,8 @@ packages:
       - "nvim"
       - "solaar" # Logitech Options alternative
       - "tailscale"
-      - "visual-studio-code-bin"
-      - "zen-browser-bin"
+      - "visual-studio-code"
+      - "zen-browser"
       - "zoxide" # better cd
     arch:
       # pacman -Qqet

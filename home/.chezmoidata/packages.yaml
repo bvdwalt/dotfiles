@@ -1,9 +1,17 @@
 packages:
   linux:
-    fedoraCOPRRepositories:
-      - "atim/lazydocker"
-      - "dejan/lazygit"
-      - "sneexy/zen-browser"
+    fedoraRepositories:
+      yum:
+        - name: "1password"
+          baseurl: "https://downloads.1password.com/linux/rpm/stable/$basearch"
+          gpgkey: "https://downloads.1password.com/linux/keys/1password.asc"
+        - name: "vscode"
+          baseurl: "https://packages.microsoft.com/yumrepos/vscode"
+          gpgkey: "https://packages.microsoft.com/keys/microsoft.asc"
+      copr:
+        - "atim/lazydocker"
+        - "atim/lazygit"
+        - "sneexy/zen-browser"
     fedora:
       - "1password-cli"
       - "1password"

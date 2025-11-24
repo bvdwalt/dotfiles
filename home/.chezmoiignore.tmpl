@@ -6,13 +6,16 @@ darwin-install-packages.sh
 .aerospace.toml
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
-linux-install-packages.sh
 .config/fastfetch/**
-{{ end }}
-{{ if ne .chezmoi.osRelease.id "arch" }}
 .config/hypr/**
 .config/waybar/**
 .config/wlogout/**
 .config/wofi/**
 .config/rofi/**
+{{ end }}
+{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
+fedora-install-packages.sh
+{{ end }}
+{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch")}}
+linux-install-packages.sh
 {{ end }}

@@ -1,48 +1,63 @@
 packages:
   linux:
+    fedora:
+      - "1password-cli"
+      - "1password"
+      - "fish"
+      - "git"
+      - "github-cli"
+      - "go"
+      - "jq"
+      - "lazydocker"
+      - "lazygit"
+      - "nvim"
+      - "solaar" # Logitech Options alternative
+      - "tailscale"
+      - "visual-studio-code-bin"
+      - "zen-browser-bin"
+      - "zoxide" # better cd
     arch:
       # pacman -Qqet
       pacman:
         - "paru"
       # pacman -Qqm
       paru:
+        - "1password-cli"
+        - "1password"
+        - "blueberry"
         - "fish"
         - "git"
-        - "jq"
+        - "github-cli"
         - "go"
-        - "tailscale"
-        - "visual-studio-code-bin"
-        - "chezmoi" # dotfile manager
-        - "zoxide" # better cd
+        - "jq"
+        - "lazydocker"
+        - "lazygit"
         - "nvim"
         - "solaar" # Logitech Options alternative
-        - "lazygit"
-        - "lazydocker"
-        # - "gnome-keyring"
-        # - "gnome-boxes"
-        # - "seahorse"
-        - "zen-browser-bin"
-        # - "hyprpaper" # wallpaper manager
-        # - "hyprlock" # lockscreen manager
-        # - "hyprsunset" # blue light filter
-        - "github-cli"
-        - "1password"
-        - "1password-cli"
-        - "blueberry"
-        # - "swayidle"
-        # - "dolphin"
+        - "tailscale"
+        - "visual-studio-code-bin"
         - "yazi"
+        - "zen-browser-bin"
+        - "zoxide" # better cd
+        # - "dolphin"
+        # - "gnome-boxes"
+        # - "gnome-keyring"
+        # - "hyprlock" # lockscreen manager
+        # - "hyprpaper" # wallpaper manager
+        # - "hyprsunset" # blue light filter
+        # - "seahorse"
+        # - "swayidle"
   darwin:
     brews:
+      - "chezmoi"
       - "fish"
+      - "gh"
       - "git"
       - "jq"
-      - "zoxide"
-      - "chezmoi"
       - "lazygit"
-      - "gh"
       - "yazi"
+      - "zoxide"
     casks:
-      - "aerospace"
-      - "1password"
       - "1password-cli"
+      - "1password"
+      - "aerospace"

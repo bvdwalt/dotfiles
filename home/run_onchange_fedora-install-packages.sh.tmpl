@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+#!/bin/bash
+
+echo "installing DNF packages"
+sudo dnf install -y{{ range .packages.fedora.dnf }} {{ . }}{{ end }}
+{{ end -}}

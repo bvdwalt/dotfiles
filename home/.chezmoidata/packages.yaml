@@ -22,7 +22,7 @@ packages:
       - "jq"
       - "lazydocker"
       - "lazygit"
-      - "nvim"
+      - "neovim"
       - "solaar" # Logitech Options alternative
       - "tailscale"
       - "visual-studio-code"

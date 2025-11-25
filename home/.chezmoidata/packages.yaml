@@ -25,7 +25,7 @@ packages:
       - "neovim"
       - "solaar" # Logitech Options alternative
       - "tailscale"
-      - "visual-studio-code"
+      - "code"
       - "zen-browser"
       - "zoxide" # better cd
     arch:

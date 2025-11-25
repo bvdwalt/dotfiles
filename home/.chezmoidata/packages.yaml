@@ -8,6 +8,7 @@ packages:
         - name: "vscode"
           baseurl: "https://packages.microsoft.com/yumrepos/vscode"
           gpgkey: "https://packages.microsoft.com/keys/microsoft.asc"
+          type: "rpm-md"
       copr:
         - "atim/lazydocker"
         - "atim/lazygit"

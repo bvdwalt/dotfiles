@@ -141,13 +141,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     if.app-id = 'com.linear'
     run = ['move-node-to-workspace 3']
 
-# Spotify
-[[on-window-detected]]
-    if.during-aerospace-startup = true
-    check-further-callbacks = true
-    if.app-id = 'com.spotify.client'
-    run = ['move-node-to-workspace 3']
-
 # -------------------- On window detected rules for specific apps --------------------
 
 # Canary Mail

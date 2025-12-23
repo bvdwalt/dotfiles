@@ -70,6 +70,7 @@ packages:
       - "lazygit"
       - "yazi"
       - "zoxide"
+      - "lazysql"
     casks:
       - "1password-cli"
       - "1password"

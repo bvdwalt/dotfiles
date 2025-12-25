@@ -3,7 +3,7 @@ packages:
     fedoraRepositories:
       yum:
         - name: "1password"
-          baseurl: "https://downloads.1password.com/linux/rpm/stable/$basearch"
+          baseurl: "https://downloads.1password.com/linux/rpm/stable/x86_64"
           gpgkey: "https://downloads.1password.com/linux/keys/1password.asc"
         - name: "vscode"
           baseurl: "https://packages.microsoft.com/yumrepos/vscode"

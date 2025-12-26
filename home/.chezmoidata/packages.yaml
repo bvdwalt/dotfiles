@@ -29,6 +29,7 @@ packages:
       - "code"
       - "zen-browser"
       - "zoxide" # better cd
+      - "obs-studio"
     arch:
       # pacman -Qqet
       pacman:

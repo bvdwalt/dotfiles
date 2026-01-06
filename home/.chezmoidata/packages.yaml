@@ -72,6 +72,7 @@ packages:
       - "yazi"
       - "zoxide"
       - "lazysql"
+      - "rainfrog" # TUI PostgreSQL
     casks:
       - "1password-cli"
       - "1password"

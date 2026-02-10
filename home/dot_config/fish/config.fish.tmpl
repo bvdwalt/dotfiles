@@ -35,6 +35,8 @@ fish_add_path /opt/homebrew/opt/dotnet-sdk/bin
 fish_add_path /opt/homebrew/opt/libpq/bin
 fish_add_path /opt/homebrew/opt/node@18/bin
 fish_add_path ~/go/bin
+fish_add_path /opt/local/bin
+fish_add_path /opt/local/sbin
 
 # 1Password SSH configuration
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -61,3 +63,4 @@ end
 
 # zoxide init command for a better cd
 zoxide init fish | source
+export PATH="$HOME/.cargo/bin:$PATH"

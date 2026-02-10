@@ -163,6 +163,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     if.app-id = 'com.cron.electron'
     run = 'layout floating'
 
+# Signal Messenger
+[[on-window-detected]]
+    if.app-id = 'org.whispersystems.signal-desktop'
+    run = 'layout floating'
+
 # Apple
 # Finder
 [[on-window-detected]]

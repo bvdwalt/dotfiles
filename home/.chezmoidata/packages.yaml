@@ -73,6 +73,9 @@ packages:
       - "zoxide"
       - "go"
       - "dotnet"
+      # work specific
+      - "python"
+      - "uv"
     casks:
       - "1password-cli"
       - "1password"
@@ -83,5 +86,3 @@ packages:
       - "notion-calendar"
       # work specific
       - "slack"
-      - "python"
-      - "uv"

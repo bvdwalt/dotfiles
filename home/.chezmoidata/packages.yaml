@@ -71,9 +71,13 @@ packages:
       - "lazygit"
       - "yazi"
       - "zoxide"
-      - "lazysql"
-      - "rainfrog" # TUI PostgreSQL
+      - "go"
+      - "dotnet"
     casks:
       - "1password-cli"
       - "1password"
       - "aerospace"
+      - "visual-studio-code"
+      - "jetbrains-toolbox"
+      - "raycast"
+      - "slack"

@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Set default shell to fish on macOS
+FISH_PATH=""
+for candidate in /opt/homebrew/bin/fish /usr/local/bin/fish /usr/bin/fish; do
+    if [ -x "$candidate" ]; then
+        FISH_PATH="$candidate"
+        break
+    fi
+done
+if [ -z "$FISH_PATH" ]; then
+    FISH_PATH=$(command -v fish || true)
+fi
+
+if [ -n "$FISH_PATH" ]; then
+    if ! grep -qx "$FISH_PATH" /etc/shells; then
+        echo "$FISH_PATH" | sudo tee -a /etc/shells >/dev/null
+    fi
+    if [ "$SHELL" != "$FISH_PATH" ]; then
+        chsh -s "$FISH_PATH"
+        echo "Default shell changed to fish"
+    fi
+fi
+{{ else if eq .chezmoi.os "linux" -}}
+# Set default shell to fish on Linux
+FISH_PATH=""
+for candidate in /usr/bin/fish /usr/local/bin/fish /opt/homebrew/bin/fish; do
+    if [ -x "$candidate" ]; then
+        FISH_PATH="$candidate"
+        break
+    fi
+done
+if [ -z "$FISH_PATH" ]; then
+    FISH_PATH=$(command -v fish || true)
+fi
+
+if [ -n "$FISH_PATH" ]; then
+    if [ "$SHELL" != "$FISH_PATH" ]; then
+        chsh -s "$FISH_PATH"
+        echo "Default shell changed to fish"
+    fi
+fi
+{{ end -}}

@@ -74,6 +74,8 @@ packages:
       - "go"
       - "dotnet"
       # work specific
+      - "node"
+      - "oven-sh/bun/bun"
       - "python"
       - "uv"
     casks:

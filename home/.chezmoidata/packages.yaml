@@ -80,4 +80,8 @@ packages:
       - "visual-studio-code"
       - "jetbrains-toolbox"
       - "raycast"
+      - "notion-calendar"
+      # work specific
       - "slack"
+      - "python"
+      - "uv"

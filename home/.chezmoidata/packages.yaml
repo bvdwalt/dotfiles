@@ -79,6 +79,7 @@ packages:
       - "python"
       - "uv"
     casks:
+      - "shottr"
       - "docker-desktop"
       - "1password-cli"
       - "1password"

@@ -66,6 +66,7 @@ packages:
       - "chezmoi"
       - "dotnet"
       - "fish"
+      - "fzf" # better cd
       - "gh"
       - "git"
       - "go"
@@ -89,6 +90,8 @@ packages:
       - "shottr"
       - "signal"
       - "visual-studio-code"
+      - "warp"
+      - "zen"
       # work specific
       - "displaylink"
       - "slack"

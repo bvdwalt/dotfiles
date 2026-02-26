@@ -71,10 +71,12 @@ packages:
       - "git"
       - "go"
       - "jq"
+      - "k9s"
       - "lazygit"
       - "yazi"
       - "zoxide"
       # work specific
+      - "awscli"
       - "node"
       - "oven-sh/bun/bun"
       - "python"

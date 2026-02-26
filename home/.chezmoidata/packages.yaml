@@ -96,4 +96,5 @@ packages:
       - "zen"
       # work specific
       - "displaylink"
+      - "lens"
       - "slack"

@@ -74,6 +74,7 @@ packages:
       - "jq"
       - "k9s"
       - "lazygit"
+      - "ripgrep"
       - "yazi"
       - "zoxide"
       # work specific

@@ -13,8 +13,14 @@ set -gx ARCHFLAGS "-arch (uname -m)"
 # GitHub Golang private repository setup
 set -gx GOPRIVATE "github.com/hadriansecurity/*"
 
+# Source custom aliases and environment variables if they exist
 test -f ~/.custom_aliases; and source ~/.custom_aliases
 test -f ~/.extra_env_vars; and source ~/.extra_env_vars
+
+# Tell fzf to use fd for file searching
+set -gx FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git'
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -gx FZF_DEFAULT_OPTS "--ansi"
 
 {{ if eq .chezmoi.os "linux" -}}
 fish_add_path ~/.pulumi/bin

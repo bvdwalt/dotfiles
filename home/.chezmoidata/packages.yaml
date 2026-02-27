@@ -66,6 +66,7 @@ packages:
       - "chezmoi"
       - "dotnet"
       - "emacs"
+      - "fd" # better find
       - "fish"
       - "fzf" # better cd
       - "gh"

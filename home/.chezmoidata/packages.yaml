@@ -65,6 +65,7 @@ packages:
     brews:
       - "chezmoi"
       - "dotnet"
+      - "emacs"
       - "fish"
       - "fzf" # better cd
       - "gh"

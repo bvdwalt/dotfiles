@@ -75,7 +75,6 @@ packages:
       - "jq"
       - "k9s"
       - "lazygit"
-      - "mise"
       - "ripgrep"
       - "witr"
       - "yazi"

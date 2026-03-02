@@ -73,6 +73,7 @@ packages:
       - "git"
       - "go"
       - "jq"
+      - "just"
       - "k9s"
       - "lazygit"
       - "ripgrep"

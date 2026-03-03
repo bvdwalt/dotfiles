@@ -91,6 +91,7 @@ packages:
       - "1password-cli"
       - "1password"
       - "aerospace"
+      - "claude-code"
       - "docker-desktop"
       - "jetbrains-toolbox"
       - "notion-calendar"

@@ -92,6 +92,7 @@ packages:
       - "1password"
       - "aerospace"
       - "claude-code"
+      - "bvdwalt/tap/clippy"
       - "docker-desktop"
       - "jetbrains-toolbox"
       - "notion-calendar"

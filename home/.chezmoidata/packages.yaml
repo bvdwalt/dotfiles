@@ -91,6 +91,7 @@ packages:
       - "1password-cli"
       - "1password"
       - "aerospace"
+      - "claude"
       - "claude-code"
       - "bvdwalt/tap/clippy"
       - "docker-desktop"

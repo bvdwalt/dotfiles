@@ -63,6 +63,7 @@ packages:
         # - "swayidle"
   darwin:
     brews:
+      - "btop"
       - "chezmoi"
       - "dotnet"
       - "emacs"

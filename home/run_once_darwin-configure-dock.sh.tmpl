@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Set dock autohide animation speed
+defaults write com.apple.dock autohide-time-modifier -float 0.15
+killall Dock
+{{ end -}}

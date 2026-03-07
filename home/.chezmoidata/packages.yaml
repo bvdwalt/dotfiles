@@ -97,6 +97,7 @@ packages:
       - "bvdwalt/tap/clippy"
       - "docker-desktop"
       - "jetbrains-toolbox"
+      - "monitorcontrol"
       - "notion-calendar"
       - "raycast"
       - "shottr"

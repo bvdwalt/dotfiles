@@ -97,6 +97,7 @@ packages:
       - "claude-code"
       - "claude"
       - "docker-desktop"
+      - "hoppscotch"
       - "jetbrains-toolbox"
       - "monitorcontrol"
       - "notion-calendar"

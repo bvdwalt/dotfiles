@@ -16,22 +16,22 @@ packages:
     fedora:
       - "1password-cli"
       - "1password"
+      - "code"
       - "fish"
-      - "git"
       - "gh" # Github CLI
+      - "git"
       - "go"
-      - "just"
       - "jq"
+      - "just"
       - "lazydocker"
       - "lazygit"
       - "neovim"
       - "nmap"
+      - "obs-studio"
       - "solaar" # Logitech Options alternative
       - "tailscale"
-      - "code"
       - "zen-browser"
       - "zoxide" # better cd
-      - "obs-studio"
       # GNOME desktop
       - "gnome-tweaks"
       - "dconf-editor"

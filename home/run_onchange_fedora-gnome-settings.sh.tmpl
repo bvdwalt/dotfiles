@@ -1,0 +1,54 @@
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+#!/bin/bash
+# Applies GNOME desktop settings via gsettings.
+# This script is re-run by chezmoi whenever its content changes.
+
+set -euo pipefail
+
+if ! command -v gsettings &>/dev/null; then
+  echo "gsettings not found, skipping GNOME settings"
+  exit 0
+fi
+
+echo "Applying GNOME settings"
+
+# --- Appearance ---
+# Prefer dark colour scheme (GNOME 42+)
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# GTK3 apps: use Adwaita-dark (built-in, no extra packages needed)
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
+# Icon theme
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+
+# --- Fonts ---
+# System UI font (unchanged from default; adjust to taste)
+gsettings set org.gnome.desktop.interface font-name 'Cantarell 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Cantarell 11'
+# Monospace font used in terminals and code viewers
+gsettings set org.gnome.desktop.interface monospace-font-name 'FiraCode Nerd Font 11'
+
+# --- Extensions ---
+# Enable the AppIndicator extension (installed via DNF as
+# gnome-shell-extension-appindicator).  The UUID is stable across versions.
+CURRENT_EXTENSIONS=$(gsettings get org.gnome.shell enabled-extensions)
+INDICATOR_UUID="appindicatorsupport@rgcjonas.gmail.com"
+
+if [[ "$CURRENT_EXTENSIONS" != *"$INDICATOR_UUID"* ]]; then
+  echo "Enabling AppIndicator extension"
+  # gnome-extensions enable works even outside a live session via dconf
+  if command -v gnome-extensions &>/dev/null; then
+    gnome-extensions enable "$INDICATOR_UUID" || true
+  fi
+fi
+
+# --- Workspaces ---
+gsettings set org.gnome.mutter dynamic-workspaces true
+
+# --- Privacy ---
+# Don't keep a list of recently opened files
+gsettings set org.gnome.desktop.privacy remember-recent-files false
+
+echo "GNOME settings applied"
+{{ end -}}

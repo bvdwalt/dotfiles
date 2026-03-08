@@ -30,6 +30,12 @@ packages:
       - "zen-browser"
       - "zoxide" # better cd
       - "obs-studio"
+      # GNOME desktop
+      - "gnome-tweaks"
+      - "dconf-editor"
+      - "papirus-icon-theme"
+      - "gnome-shell-extension-appindicator"
+      - "fira-code-fonts"
     arch:
       # pacman -Qqet
       pacman:

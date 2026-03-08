@@ -29,5 +29,5 @@ echo "Refreshing DNF metadata"
 sudo dnf makecache
 
 echo "Installing DNF packages"
-sudo dnf install -y{{ range .packages.linux.fedora }} {{ . }}{{ end }}
+sudo dnf install -y --skip-unavailable{{ range .packages.linux.fedora }} {{ . }}{{ end }}
 {{ end -}}

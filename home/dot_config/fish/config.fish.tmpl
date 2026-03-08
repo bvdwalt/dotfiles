@@ -23,6 +23,7 @@ set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -gx FZF_DEFAULT_OPTS "--ansi"
 
 {{ if eq .chezmoi.os "linux" -}}
+fish_add_path ~/.local/bin
 fish_add_path ~/.pulumi/bin
 {{ end -}}
 

@@ -20,10 +20,12 @@ packages:
       - "git"
       - "gh" # Github CLI
       - "go"
+      - "just"
       - "jq"
       - "lazydocker"
       - "lazygit"
       - "neovim"
+      - "nmap"
       - "solaar" # Logitech Options alternative
       - "tailscale"
       - "code"

@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
 #!/bin/bash
 # Applies GNOME desktop settings via gsettings.
 # This script is re-run by chezmoi whenever its content changes.

@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
 #!/bin/bash
 # Downloads and installs FiraCode Nerd Font for the current user.
 # Uses run_once so it only runs a single time (tracked by chezmoi state).

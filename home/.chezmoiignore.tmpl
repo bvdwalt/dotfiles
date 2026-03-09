@@ -13,7 +13,6 @@
   ".config/sketchybar/**"
   ".config/starship.toml"
   ".aerospace.toml"
-  ".config/environment.d/**"
 -}}
 
 {{/* Ignore Darwin files on non-macOS systems */}}
@@ -26,7 +25,10 @@
 {{/* Ignore Linux files on non-Linux systems */}}
 {{ if ne .chezmoi.os "linux" }}
 fedora-install-packages.sh
+fedora-gnome-settings.sh
+fedora-install-nerd-fonts.sh
 .config/fastfetch/**
+.config/environment.d/**
 {{ range $archFiles }}
 {{ . }}
 {{ end }}

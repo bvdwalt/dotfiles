@@ -92,6 +92,7 @@ packages:
       - "zoxide"
       # work specific
       - "awscli"
+      - "fluxcd/tap/flux"
       - "node"
       - "oven-sh/bun/bun"
       - "python"

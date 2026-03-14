@@ -16,6 +16,7 @@ packages:
     fedora:
       - "1password-cli"
       - "1password"
+      - "btop"
       - "code"
       - "fish"
       - "gh" # Github CLI

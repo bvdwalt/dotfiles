@@ -101,7 +101,7 @@ packages:
     casks:
       - "1password-cli"
       - "1password"
-      - "aerospace"
+      # - "aerospace"
       - "alt-tab"
       - "barutsrb/tap/omniwm"
       - "bvdwalt/tap/clippy"

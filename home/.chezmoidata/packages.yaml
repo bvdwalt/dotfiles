@@ -99,6 +99,7 @@ packages:
       - "oven-sh/bun/bun"
       - "python"
       - "uv"
+      - "yarn"
     casks:
       - "1password-cli"
       - "1password"

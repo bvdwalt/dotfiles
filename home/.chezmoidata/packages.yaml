@@ -73,6 +73,7 @@ packages:
   darwin:
     brews:
       - "btop"
+      - "bvdwalt/tap/clippy"
       - "chezmoi"
       - "dotnet"
       - "emacs"
@@ -106,7 +107,6 @@ packages:
       # - "aerospace"
       - "alt-tab"
       - "barutsrb/tap/omniwm"
-      - "bvdwalt/tap/clippy"
       - "claude-code"
       - "claude"
       - "docker-desktop"

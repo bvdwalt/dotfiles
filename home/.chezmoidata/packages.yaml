@@ -72,6 +72,7 @@ packages:
         # - "swayidle"
   darwin:
     brews:
+      - "ansible"
       - "btop"
       - "chezmoi"
       - "dotnet"

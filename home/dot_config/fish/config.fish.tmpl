@@ -70,3 +70,8 @@ end
 # zoxide init command for a better cd
 zoxide init fish | source
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Auto-attach to (or create) a persistent zellij session
+if status is-interactive; and not set -q ZELLIJ
+    zellij attach -c main
+end

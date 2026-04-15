@@ -1,11 +1,11 @@
 ---
 name: commit
-description: Write a conventional commit message based on staged changes and branch commits vs main
+description: Write a conventional commit message and commit the staged changes after confirmation
 ---
 
-# Conventional Commit Message Skill
+# Conventional Commit Skill
 
-Write a conventional commit message for the current staged/unstaged changes.
+Write a conventional commit message for the staged changes, then run `git commit` after confirmation.
 
 ## Steps
 
@@ -29,12 +29,19 @@ Write a conventional commit message for the current staged/unstaged changes.
 6. Write a short, imperative description (max ~72 chars): what it does, not what you did
 7. Add a body if the *why* isn't obvious from the description
 
-## Output
+## Output and confirmation
 
-Print the commit message only — no explanation, no filler. Example:
+1. Show the proposed commit message as plain text (no code fences)
+2. Ask the user to confirm before committing — wait for explicit approval
+3. Once confirmed, run `git commit` using a HEREDOC to pass the message:
 
 ```
-feat(db): replace automerge with SQLite for zero-CGO builds
+git commit -m "$(cat <<'EOF'
+<subject>
+
+<body if any>
+EOF
+)"
 ```
 
-If the changes are complex, also suggest a short body paragraph.
+4. Report success or any error from git

@@ -9,8 +9,8 @@ window-padding-x = 24
 window-padding-y = 24,12
 macos-titlebar-style = hidden
 
+macos-option-as-alt = true
+
 keybind = super+k=clear_screen
 keybind = opt+left=text:\x1bb
 keybind = opt+right=text:\x1bf
-keybind = opt+t=text:\x1bt
-keybind = opt+n=text:\x1bn

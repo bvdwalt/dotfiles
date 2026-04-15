@@ -75,6 +75,7 @@ packages:
       - "ansible"
       - "btop"
       - "chezmoi"
+      - "delta"
       - "dotnet"
       - "emacs"
       - "fd" # better find

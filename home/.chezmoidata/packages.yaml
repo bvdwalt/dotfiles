@@ -101,6 +101,7 @@ packages:
       - "python"
       - "uv"
       - "yarn"
+      - "zellij"
     casks:
       - "1password-cli"
       - "1password"
@@ -111,6 +112,7 @@ packages:
       - "claude-code"
       - "claude"
       - "docker-desktop"
+      - "ghostty"
       - "hoppscotch"
       - "jetbrains-toolbox"
       - "monitorcontrol"
@@ -119,7 +121,6 @@ packages:
       - "shottr"
       - "signal"
       - "visual-studio-code"
-      - "warp"
       - "zen"
       # work specific
       - "displaylink"

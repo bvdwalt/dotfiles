@@ -1,0 +1,14 @@
+font-family = FiraCode Nerd Font
+font-size = 12
+
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+
+window-width = 93
+window-height = 45
+window-padding-x = 24
+window-padding-y = 24,12
+macos-titlebar-style = hidden
+
+keybind = super+k=clear_screen
+keybind = opt+left=text:\x1bb
+keybind = opt+right=text:\x1bf

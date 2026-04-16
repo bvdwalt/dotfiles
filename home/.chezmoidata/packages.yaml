@@ -91,6 +91,7 @@ packages:
       - "k9s"
       - "lazygit"
       - "ripgrep"
+      - "starship"
       - "tailscale"
       - "witr"
       - "yazi"

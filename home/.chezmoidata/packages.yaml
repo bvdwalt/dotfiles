@@ -73,6 +73,7 @@ packages:
   darwin:
     brews:
       - "ansible"
+      - "atuin"
       - "btop"
       - "chezmoi"
       - "delta"

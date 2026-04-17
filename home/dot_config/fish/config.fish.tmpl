@@ -70,7 +70,10 @@ end
 
 if status is-interactive
     # Auto-attach to (or create) a persistent zellij session
+    # Skip in VSCode, JetBrains, or other IDE-embedded terminals
     if not set -q ZELLIJ
+        and not set -q INTELLIJ_ENVIRONMENT_READER
+        and test "$TERM_PROGRAM" != vscode
         zellij attach -c main
     end
 

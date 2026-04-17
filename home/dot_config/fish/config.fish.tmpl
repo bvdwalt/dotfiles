@@ -41,7 +41,6 @@ fish_add_path "/Users/barend/src/aa-scripts/bin"
 # Other PATH additions
 fish_add_path /opt/homebrew/opt/dotnet-sdk/bin
 fish_add_path /opt/homebrew/opt/libpq/bin
-fish_add_path /opt/homebrew/opt/node@18/bin
 fish_add_path ~/go/bin
 fish_add_path ~/.dotnet/tools
 
@@ -88,4 +87,7 @@ if status is-interactive
 
     # atuin init command for shell history
     atuin init fish | source
+
+    # fnm (Fast Node Manager) environment setup
+    fnm env --use-on-cd | source
 end

@@ -99,7 +99,7 @@ packages:
       # work specific
       - "awscli"
       - "fluxcd/tap/flux"
-      - "node"
+      - "fnm" # fast node manager
       - "oven-sh/bun/bun"
       - "python"
       - "uv"

@@ -6,6 +6,7 @@ Host gitea.greedo.net
 Host truenas.local
   HostName truenas.local
   User bvdwalt
+  SetEnv TERM=xterm-256color
 
 Host *
 {{- if eq .chezmoi.os "darwin" }}

@@ -93,7 +93,6 @@ packages:
       - "lazygit"
       - "ripgrep"
       - "starship"
-      - "tailscale"
       - "witr"
       - "yazi"
       - "zoxide"
@@ -124,6 +123,7 @@ packages:
       - "raycast"
       - "shottr"
       - "signal"
+      - "tailscale"
       - "visual-studio-code"
       - "zen"
       # work specific

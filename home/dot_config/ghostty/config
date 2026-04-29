@@ -11,6 +11,9 @@ macos-titlebar-style = hidden
 
 macos-option-as-alt = true
 
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
 keybind = super+k=clear_screen
 keybind = opt+left=text:\x1bb
 keybind = opt+right=text:\x1bf

@@ -68,14 +68,6 @@ end
 {{ end -}}
 
 if status is-interactive
-    # Auto-attach to (or create) a persistent zellij session
-    # Skip in VSCode, JetBrains, or other IDE-embedded terminals
-    if not set -q ZELLIJ
-        and test "$TERM_PROGRAM" != vscode
-        and test "$TERMINAL_EMULATOR" != JetBrains-JediTerm
-        zellij attach -c main
-    end
-
     # Source custom aliases if they exist
     test -f ~/.custom_aliases; and source ~/.custom_aliases
 

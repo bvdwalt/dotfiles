@@ -264,6 +264,8 @@ load_plugins {
 theme "catppuccin-mocha"
 default_shell "fish"
 pane_frames false
+session_name "main"
+attach_to_session true
 serialize_pane_viewport true
 show_startup_tips false
 show_release_notes false

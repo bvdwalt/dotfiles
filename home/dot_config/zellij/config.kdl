@@ -110,7 +110,7 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "normal"
         }
-        bind "Ctrl o" { SwitchToMode "normal"; }
+        bind "Ctrl s" { SwitchToMode "normal"; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
@@ -157,13 +157,13 @@ keybinds clear-defaults=true {
         bind "Ctrl h" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
-        bind "Ctrl o" { SwitchToMode "session"; }
+        bind "Ctrl s" { SwitchToMode "session"; }
     }
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl b" { SwitchToMode "tmux"; }
     }
     shared_except "locked" "scroll" "search" {
-        bind "Ctrl s" { SwitchToMode "scroll"; }
+        bind "Ctrl f" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "tab" {
         bind "Ctrl t" { SwitchToMode "tab"; }
@@ -193,12 +193,11 @@ keybinds clear-defaults=true {
         bind "Ctrl b" { PageScrollUp; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
         bind "d" { HalfPageScrollDown; }
-        bind "Ctrl f" { PageScrollDown; }
+        bind "Ctrl f" { SwitchToMode "normal"; }
         bind "h" { PageScrollUp; }
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
-        bind "Ctrl s" { SwitchToMode "normal"; }
         bind "u" { HalfPageScrollUp; }
     }
     entersearch {

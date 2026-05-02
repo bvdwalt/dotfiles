@@ -12,12 +12,17 @@ packages:
       copr:
         - "atim/lazydocker"
         - "atim/lazygit"
+        - "atim/starship"
+        - "karlisk/ventoy"
         - "sneexy/zen-browser"
+        - "varlad/zellij"
     fedora:
       - "1password-cli"
       - "1password"
+      - "atuin"
       - "btop"
       - "code"
+      - "delta"
       - "fish"
       - "gh" # Github CLI
       - "ghostty"
@@ -31,8 +36,11 @@ packages:
       - "nmap"
       - "obs-studio"
       - "solaar" # Logitech Options alternative
+      - "starship"
       - "tailscale"
+      - "ventoy"
       - "zen-browser"
+      - "zellij"
       - "zoxide" # better cd
       # GNOME desktop
       - "gnome-tweaks"

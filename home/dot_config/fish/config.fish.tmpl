@@ -81,5 +81,7 @@ if status is-interactive
     atuin init fish | source
 
     # fnm (Fast Node Manager) environment setup
+{{ if eq .chezmoi.os "darwin" -}}
     fnm env --use-on-cd | source
+{{ end -}}
 end

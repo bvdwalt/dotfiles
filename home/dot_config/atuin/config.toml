@@ -2,12 +2,21 @@ update_check = false
 sync_address = "https://atuin.greedo.net"
 auto_sync = true
 sync_frequency = "1h"
+search_mode = "fuzzy"
+strip_trailing_whitespace = true
+enter_accept = true
 
 [history]
 filter_mode_shell_up_arrow = "directory"
+
+[sync]
+records = true
+
+[daemon]
+enabled = true
+autostart = true
 
 [ui]
 style = "compact"
 inline_height = 20
 show_preview = true
-enter_accept = true

@@ -79,6 +79,7 @@ packages:
         # - "swayidle"
   darwin:
     brews:
+      - "7zip"
       - "ansible"
       - "atuin"
       - "btop"

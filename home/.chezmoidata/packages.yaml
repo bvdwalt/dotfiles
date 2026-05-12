@@ -50,24 +50,36 @@ packages:
       # pacman -Qqet
       pacman:
         - "paru"
+        - "dconf"
+        - "gnome-tweaks"
+        - "papirus-icon-theme"
+        - "gnome-shell-extension-appindicator"
+        - "ttf-fira-code"
       # pacman -Qqm
       paru:
         - "1password-cli"
         - "1password"
+        - "atuin"
         - "blueberry"
+        - "btop"
         - "fish"
+        - "ghostty"
         - "git"
         - "github-cli"
         - "go"
         - "jq"
         - "lazydocker"
         - "lazygit"
+        - "nmap"
         - "nvim"
+        - "obs-studio"
         - "solaar" # Logitech Options alternative
+        - "starship"
         - "tailscale"
         - "visual-studio-code-bin"
         - "yazi"
         - "zen-browser-bin"
+        - "zellij"
         - "zoxide" # better cd
         # - "dolphin"
         # - "gnome-boxes"

@@ -80,6 +80,11 @@ if status is-interactive
     # atuin init command for shell history
     atuin init fish | source
 
+{{ if eq .chezmoi.os "linux" -}}
+    # Start atuin daemon on Linux (macOS auto-starts)
+    atuin daemon &>/dev/null &
+{{ end -}}
+
     # fnm (Fast Node Manager) environment setup
 {{ if eq .chezmoi.os "darwin" -}}
     fnm env --use-on-cd | source

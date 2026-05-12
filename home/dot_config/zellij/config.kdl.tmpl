@@ -9,10 +9,14 @@ keybinds clear-defaults=true {
         bind "right" { MoveFocus "right"; }
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "d" { NewPane "down"; SwitchToMode "normal"; }
+        {{ if eq .chezmoi.os "darwin" }}
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }
+        {{ end }}
         bind "f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "h" { MoveFocus "left"; }
+        {{ if eq .chezmoi.os "darwin" }}
         bind "i" { TogglePanePinned; SwitchToMode "normal"; }
+        {{ end }}
         bind "j" { MoveFocus "down"; }
         bind "k" { MoveFocus "up"; }
         bind "l" { MoveFocus "right"; }
@@ -20,7 +24,9 @@ keybinds clear-defaults=true {
         bind "p" { SwitchFocus; }
         bind "Ctrl p" { SwitchToMode "normal"; }
         bind "r" { NewPane "right"; SwitchToMode "normal"; }
+        {{ if eq .chezmoi.os "darwin" }}
         bind "s" { NewPane "stacked"; SwitchToMode "normal"; }
+        {{ end }}
         bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "normal"; }
     }
@@ -149,8 +155,10 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
+        {{ if eq .chezmoi.os "darwin" }}
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+        {{ end }}
         bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {

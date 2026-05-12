@@ -79,7 +79,10 @@ packages:
         # - "swayidle"
   windows:
     scoop:
-      - "git"
+      pre:
+        - "aria2"
+      packages:
+        - "git"
   darwin:
     brews:
       - "7zip"

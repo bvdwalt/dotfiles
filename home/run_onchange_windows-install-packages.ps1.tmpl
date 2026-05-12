@@ -4,5 +4,7 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 }
 
-scoop install {{ join " " .packages.windows.scoop }}
+scoop install {{ join " " .packages.windows.scoop.pre }}
+scoop config aria2-warning-enabled false
+scoop install {{ join " " .packages.windows.scoop.packages }}
 {{ end -}}

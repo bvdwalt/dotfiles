@@ -40,8 +40,8 @@ fedora-install-nerd-fonts.sh
 fedora-install-packages.sh
 {{ end }}
 
-{{/* Ignore Arch files on non-Arch Linux systems */}}
-{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "arch") }}
+{{/* Ignore Arch files on non-Arch Linux systems (including Arch-based like CachyOS) */}}
+{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.idLike "arch") }}
 {{ range $archFiles }}
 {{ . }}
 {{ end }}

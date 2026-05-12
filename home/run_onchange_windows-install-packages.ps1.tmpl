@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "windows" -}}
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
+
+scoop install {{ join " " .packages.windows.scoop }}
+{{ end -}}

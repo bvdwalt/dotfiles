@@ -77,6 +77,9 @@ packages:
         # - "hyprsunset" # blue light filter
         # - "seahorse"
         # - "swayidle"
+  windows:
+    scoop:
+      - "git"
   darwin:
     brews:
       - "7zip"

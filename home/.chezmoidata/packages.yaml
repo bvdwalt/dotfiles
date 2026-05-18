@@ -62,6 +62,7 @@ packages:
         - "atuin"
         - "blueberry"
         - "btop"
+        - "delta"
         - "fish"
         - "ghostty"
         - "git"

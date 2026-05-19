@@ -140,6 +140,7 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
+        bind "Ctrl d" { Detach; }
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
@@ -265,14 +266,9 @@ plugins {
     }
 }
 
-load_plugins {
-}
-
 theme "catppuccin-mocha"
 default_shell "fish"
 pane_frames false
-session_name "main"
-attach_to_session true
 serialize_pane_viewport true
 show_startup_tips false
 show_release_notes false

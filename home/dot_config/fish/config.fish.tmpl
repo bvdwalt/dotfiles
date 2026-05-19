@@ -68,6 +68,14 @@ end
 {{ end -}}
 
 if status is-interactive
+    function zjm
+        if zellij list-sessions 2>/dev/null | grep -q "^main"
+            zellij attach main
+        else
+            zellij -s main -n main
+        end
+    end
+
     # Source custom aliases if they exist
     test -f ~/.custom_aliases; and source ~/.custom_aliases
 

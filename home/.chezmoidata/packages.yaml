@@ -81,6 +81,8 @@ packages:
         - "yazi"
         - "zen-browser-bin"
         - "zellij"
+        - "cowsay"
+        - "fortune-mod"
         - "zoxide" # better cd
         # - "dolphin"
         # - "gnome-boxes"
@@ -121,6 +123,8 @@ packages:
       - "starship"
       - "witr"
       - "yazi"
+      - "cowsay"
+      - "fortune"
       - "zoxide"
       # work specific
       - "awscli"
@@ -149,7 +153,7 @@ packages:
       - "raycast"
       - "shottr"
       - "signal"
-      - "tailscale"
+      - "tailscale-app"
       - "visual-studio-code"
       - "zen"
       # work specific

@@ -1,7 +1,6 @@
-set -g fish_greeting "Hi 🐟"
-
 # Language settings
-set -gx LANG en_US.utf8
+set -gx LANG en_US.UTF-8
+set -gx LC_ALL en_US.UTF-8
 # Editor configuration
 if test -n "$SSH_CONNECTION"
     set -gx EDITOR nano
@@ -69,11 +68,7 @@ end
 
 if status is-interactive
     function zjm
-        if zellij list-sessions 2>/dev/null | grep -q "^main"
-            zellij attach main
-        else
-            zellij -s main -n main
-        end
+        zellij attach main 2>/dev/null; or zellij -s main -n main
     end
 
     # Source custom aliases if they exist

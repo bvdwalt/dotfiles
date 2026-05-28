@@ -105,11 +105,13 @@ packages:
       - "atuin"
       - "btop"
       - "chezmoi"
+      - "cowsay"
       - "delta"
       - "dotnet"
       - "emacs"
       - "fd" # better find
       - "fish"
+      - "fortune"
       - "fzf" # better cd
       - "gh"
       - "git"
@@ -123,8 +125,6 @@ packages:
       - "starship"
       - "witr"
       - "yazi"
-      - "cowsay"
-      - "fortune"
       - "zoxide"
       # work specific
       - "awscli"
@@ -148,6 +148,7 @@ packages:
       - "ghostty"
       - "hoppscotch"
       - "jetbrains-toolbox"
+      - "localsend"
       - "monitorcontrol"
       - "notion-calendar"
       - "raycast"

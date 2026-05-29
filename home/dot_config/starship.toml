@@ -1,5 +1,5 @@
 format = """
-[╭─](fg:surface2)$directory$git_branch$fill$dotnet$cmd_duration
+[╭─](fg:surface2)$directory$git_branch$kubernetes$fill$dotnet$cmd_duration
 [╰─$character](fg:surface2)"""
 
 palette = 'catppuccin_mocha'
@@ -29,6 +29,11 @@ truncation_symbol = '…/'
 truncation_length = 2
 read_only = '󱧵 '
 read_only_style = 'fg:red'
+
+[kubernetes]
+format = '[ $symbol$context( \($namespace\))](fg:cyan) '
+symbol = '󱃾 '
+disabled = false
 
 [git_branch]
 format = '[ $symbol$branch](fg:green) '

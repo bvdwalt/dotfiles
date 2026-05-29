@@ -120,6 +120,7 @@ packages:
       - "jq"
       - "just"
       - "k9s"
+      - "kubectx"
       - "lazygit"
       - "ripgrep"
       - "starship"

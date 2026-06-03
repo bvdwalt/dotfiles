@@ -1,5 +1,5 @@
 format = """
-[╭─](fg:surface2)$directory$git_branch$kubernetes$fill$dotnet$cmd_duration
+[╭─](fg:surface2)$directory$git_branch$kubernetes[ ─ ](fg:surface1)$dotnet$cmd_duration
 [╰─$character](fg:surface2)"""
 
 palette = 'catppuccin_mocha'
@@ -42,10 +42,6 @@ symbol = ' '
 [dotnet]
 format = '[](fg:surface2)[ $symbol$tfm](fg:mauve) '
 symbol = '󰪮 '
-
-[fill]
-symbol = '─'
-style = 'fg:surface1'
 
 [cmd_duration]
 min_time = 500

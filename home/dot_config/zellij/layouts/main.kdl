@@ -11,7 +11,7 @@ layout {
     tab name="Home" cwd="~" {
         pane command="clippy"
     }
-    tab name="homelab-compose" cwd="~/src/personal/homelab-compose" {
+    tab name="homelab" cwd="~/src/personal/homelab" {
         pane split_direction="vertical" {
             pane
             pane command="lazygit" size="35%"

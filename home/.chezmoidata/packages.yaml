@@ -124,6 +124,7 @@ packages:
       - "lazygit"
       - "ripgrep"
       - "starship"
+      - "teamookla/speedtest/speedtest"
       - "witr"
       - "yazi"
       - "zoxide"

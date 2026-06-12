@@ -35,7 +35,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.main.binding]
 
     # App shortcuts
-    alt-w = 'exec-and-forget open -a /Applications/Warp.app'
+    alt-w = 'exec-and-forget open -a /Applications/Ghostty.app'
     alt-z = 'exec-and-forget open -a /Applications/Zen.app'
     alt-s = 'exec-and-forget open -a /Applications/Slack.app'
     alt-c = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'

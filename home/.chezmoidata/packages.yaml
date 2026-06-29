@@ -149,6 +149,7 @@ packages:
       - "docker-desktop"
       - "ghostty"
       - "hoppscotch"
+      - "jordanbaird-ice"
       - "jetbrains-toolbox"
       - "localsend"
       - "monitorcontrol"

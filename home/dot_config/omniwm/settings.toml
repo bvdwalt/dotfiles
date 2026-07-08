@@ -1,0 +1,236 @@
+[focus]
+followsMouse = true
+followsWindowToMonitor = true
+
+[gaps]
+size = 5
+
+[gaps.outer]
+left = 5
+right = 5
+top = 5
+bottom = 5
+
+[borders]
+enabled = true
+width = 2
+
+[borders.color]
+red = 1
+green = 0.27053917768593672
+blue = 0
+alpha = 1
+
+[workspaceBar]
+height = 20
+deduplicateAppIcons = true
+
+[[hotkeys]]
+id = "focus.left"
+binding = "Option+H"
+
+[[hotkeys]]
+id = "focus.down"
+binding = "Option+J"
+
+[[hotkeys]]
+id = "focus.up"
+binding = "Option+K"
+
+[[hotkeys]]
+id = "focus.right"
+binding = "Option+L"
+
+[[hotkeys]]
+id = "move.left"
+binding = "Option+Shift+H"
+
+[[hotkeys]]
+id = "move.down"
+binding = "Option+Shift+J"
+
+[[hotkeys]]
+id = "move.up"
+binding = "Option+Shift+K"
+
+[[hotkeys]]
+id = "move.right"
+binding = "Option+Shift+L"
+
+[[hotkeys]]
+id = "workspaceBackAndForth"
+binding = "Option+Tab"
+
+[[workspaces]]
+id = "AD36F001-C57E-41A5-AC1D-DF5249D007F0"
+name = "1"
+layoutType = "niri"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+id = "454CECD4-5E9D-4ED1-95D7-979D48817F5F"
+name = "2"
+layoutType = "niri"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+id = "BEB842B5-E894-4791-9FD1-397C3CDD3538"
+name = "3"
+layoutType = "niri"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+id = "248AA883-2261-4D45-943C-79C0E46A232B"
+name = "4"
+layoutType = "niri"
+
+[workspaces.monitorAssignment]
+type = "secondary"
+
+[[workspaces]]
+id = "8B8C45D6-CE9E-41D9-BD50-BE4989D5E3DE"
+name = "5"
+layoutType = "niri"
+
+[workspaces.monitorAssignment]
+type = "secondary"
+
+[[appRules]]
+id = "6A31F08A-4051-4354-B439-42F4C71894A3"
+bundleId = "com.openai.codex"
+minHeight = 600
+minWidth = 800
+
+[[appRules]]
+id = "4BA546DA-2875-4BEF-B13F-1539E833B1A0"
+bundleId = "com.eltima.cmd1.pro.mas"
+minHeight = 550
+minWidth = 950
+
+[[appRules]]
+id = "486CEFA6-69AA-4A3C-AF27-BCD38F4F138B"
+bundleId = "com.google.Chrome"
+minHeight = 375
+minWidth = 500
+
+[[appRules]]
+id = "979F05F4-FFA2-4EDD-B23F-08A9944C759F"
+bundleId = "dev.zed.Zed"
+minHeight = 240
+minWidth = 360
+
+[[appRules]]
+id = "81426D13-C1A5-475E-AFBC-00BBA05042D0"
+bundleId = "com.apple.Safari"
+minHeight = 220
+minWidth = 574
+
+[[appRules]]
+id = "1CF39647-F30D-4E76-9686-79B551F1B094"
+bundleId = "app.zen-browser.zen"
+minHeight = 495
+minWidth = 500
+
+[[appRules]]
+id = "005C00D3-F665-47F8-BDAE-D80790E9E46B"
+bundleId = "org.mozilla.firefox"
+minHeight = 120
+minWidth = 500
+
+[[appRules]]
+id = "C21156B1-0224-4998-97E3-8F4FA65B9F3B"
+bundleId = "company.thebrowser.dia"
+minHeight = 420
+minWidth = 500
+
+[[appRules]]
+id = "2DE9390B-0DB4-4D0C-9ABA-06F76F1D4EA9"
+bundleId = "com.spotify.client"
+minHeight = 600
+minWidth = 800
+
+[[appRules]]
+id = "AF752D95-8497-4844-BE20-4C93E73BAEF2"
+bundleId = "com.hnc.Discord"
+minHeight = 500
+minWidth = 800
+
+[[appRules]]
+id = "7876C9EF-437E-4D4F-9C27-B1B02F4AABCE"
+bundleId = "com.mitchellh.ghostty"
+minHeight = 48
+minWidth = 90
+
+[[appRules]]
+id = "8ECAB78B-BCDD-4245-BC25-1609A49B1C86"
+bundleId = "com.microsoft.Outlook"
+minHeight = 650
+minWidth = 930
+
+[[appRules]]
+id = "552FB77D-BF0E-4737-90A6-B5BC6986C579"
+bundleId = "com.apple.MobileSMS"
+layout = "float"
+minHeight = 320
+minWidth = 660
+
+[[appRules]]
+id = "249BEECB-DE7E-48EB-9BB3-8D5366D21961"
+bundleId = "com.1password.1password"
+assignToWorkspace = "3"
+
+[[appRules]]
+id = "FE7FF694-6345-423A-B275-9A6534CACD72"
+bundleId = "io.canarymail.mac"
+layout = "float"
+
+[[appRules]]
+id = "01A39FEE-24CD-47DB-98B0-8477AB7D4508"
+bundleId = "cc.ffitch.shottr"
+layout = "float"
+
+[[appRules]]
+id = "AFB56D6D-6856-4A58-B2C0-1F10682ABC06"
+bundleId = "com.cron.electron"
+layout = "float"
+
+[[appRules]]
+id = "870D5FEC-1A07-4127-AD4D-D38864B93BB2"
+bundleId = "org.whispersystems.signal-desktop"
+layout = "float"
+
+[[appRules]]
+id = "FC7D946F-2C6F-4D34-819F-99A9F3177CF3"
+bundleId = "com.apple.finder"
+layout = "float"
+
+[[appRules]]
+id = "81951650-4213-431C-9521-BD32D59B1894"
+bundleId = "com.apple.Notes"
+layout = "float"
+
+[[appRules]]
+id = "8E3D18E1-041B-417D-9B95-C774C462D014"
+bundleId = "com.apple.Preview"
+layout = "float"
+
+[[appRules]]
+id = "DB2598D1-7E18-4F38-97FD-594057AACD84"
+bundleId = "com.apple.Passwords"
+layout = "float"
+
+[[appRules]]
+id = "42BAD21D-B5D3-4354-B547-AB22D0F90C82"
+bundleId = "com.tinyspeck.slackmacgap"
+assignToWorkspace = "1"
+
+[[appRules]]
+id = "E0D2E331-3E52-47D3-A2C7-4D518E16ABFA"
+bundleId = "com.linear"
+assignToWorkspace = "3"

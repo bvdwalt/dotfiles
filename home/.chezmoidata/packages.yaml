@@ -142,6 +142,7 @@ packages:
       - "1password"
       - "aerospace"
       - "alt-tab"
+      - "barutsrb/tap/omniwm"
       - "bvdwalt/tap/clippy"
       - "claude-code@latest"
       - "claude"

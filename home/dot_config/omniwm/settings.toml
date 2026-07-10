@@ -33,7 +33,7 @@ splitWidthMultiplier = 1.0
 useGlobalGaps = true
 
 [focus]
-crossesMonitorAtEdge = false
+crossesMonitorAtEdge = true
 followsMouse = false
 followsWindowToMonitor = false
 lockModifier = "off"
@@ -520,7 +520,7 @@ binding = "Control+Command+Tab"
 id = "focusMonitorNext"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Control+Command+Shift+Tab"
 id = "focusMonitorPrevious"
 
 [[hotkeys]]

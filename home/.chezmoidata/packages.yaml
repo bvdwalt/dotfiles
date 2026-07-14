@@ -107,6 +107,7 @@ packages:
       - "chezmoi"
       - "cowsay"
       - "delta"
+      - "djadmin/tap/fort"
       - "dotnet"
       - "emacs"
       - "fd" # better find

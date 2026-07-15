@@ -47,6 +47,9 @@ fish_add_path ~/.dotnet/tools
 # 1Password SSH configuration
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
+# Disable fort's update check (no network calls)
+set -gx FORT_NO_UPDATE_CHECK 1
+
 # Interactive session specific commands
 if status is-interactive
     # kubectl completion and abbreviation

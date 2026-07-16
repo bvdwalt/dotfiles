@@ -34,7 +34,7 @@ useGlobalGaps = true
 
 [focus]
 crossesMonitorAtEdge = true
-followsMouse = false
+followsMouse = true
 followsWindowToMonitor = false
 lockModifier = "off"
 moveCrossesMonitorAtEdge = true
@@ -67,8 +67,17 @@ scrollEnabled = true
 scrollModifierKey = "optionShift"
 scrollSensitivity = 5.0
 trackpadScrollStyle = "snap"
+workspaceSwipeAxis = "vertical"
+workspaceSwipeEnabled = true
+workspaceSwipeFingerCount = 3
+
+[hiddenBar]
+enabled = true
+hiddenBundleIDs = []
+rehideIntervalSeconds = 5.0
 
 [mouseWarp]
+constrainToArrangement = false
 enabled = true
 margin = 1
 
@@ -79,6 +88,35 @@ columnWidthPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 infiniteLoop = true
 maxVisibleColumns = 2
 singleWindowAspectRatio = "fill"
+
+[overview]
+zoom = 1.0
+
+[overview.backdrop]
+alpha = 1.0
+blue = 0.08
+green = 0.05
+red = 0.05
+
+[overview.windowBorders]
+
+[overview.windowBorders.hovered]
+alpha = 1.0
+blue = 1.0
+green = 0.6
+red = 0.4
+
+[overview.windowBorders.normal]
+alpha = 0.5
+blue = 0.35
+green = 0.3
+red = 0.3
+
+[overview.windowBorders.selected]
+alpha = 1.0
+blue = 0.4
+green = 0.8
+red = 0.3
 
 [quakeTerminal]
 animationDuration = 0.2
@@ -102,19 +140,20 @@ useWorkspaceId = true
 backgroundOpacity = 0.5
 deduplicateAppIcons = true
 enabled = true
+excludedBundleIDs = []
 height = 20.0
-hideEmptyWorkspaces = false
+hideEmptyWorkspaces = true
 labelFontSize = 12.0
 notchActiveZoneWidth = 100.0
 notchMode = "splitActiveLeft"
-position = "overlappingMenuBar"
+position = "belowMenuBar"
 reserveLayoutSpace = false
 revealHoldMilliseconds = 200.0
 revealModifier = "off"
 showFloatingWindows = true
 showLabels = true
 systemStatsButton = false
-windowLevel = "popup"
+windowLevel = "status"
 xOffset = 0.0
 yOffset = 10.0
 
@@ -520,7 +559,7 @@ binding = "Control+Command+Tab"
 id = "focusMonitorNext"
 
 [[hotkeys]]
-binding = "Control+Command+Shift+Tab"
+binding = "Control+Shift+Command+Tab"
 id = "focusMonitorPrevious"
 
 [[hotkeys]]
@@ -542,6 +581,14 @@ id = "moveColumn.left"
 [[hotkeys]]
 binding = "Control+Option+Shift+Right Arrow"
 id = "moveColumn.right"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveColumn.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveColumn.down"
 
 [[hotkeys]]
 binding = "Control+Option+Home"
@@ -841,7 +888,7 @@ id = "toggleWorkspaceBarVisibility"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "toggleHiddenBar"
+id = "toggleHiddenBarPanel"
 
 [[hotkeys]]
 binding = "Option+Grave"

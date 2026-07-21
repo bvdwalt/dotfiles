@@ -164,6 +164,7 @@ packages:
       - "zed"
       - "zen"
       # work specific
+      - "aptakube"
       - "betterdisplay"
       - "displaylink"
       - "gcloud-cli"

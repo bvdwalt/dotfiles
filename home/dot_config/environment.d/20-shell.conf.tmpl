@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "linux" -}}
+{{- $fish := lookPath "fish" -}}
+{{- if $fish }}
+# Pin SHELL for systemd --user. Without this, a stale SHELL (e.g. /bin/bash)
+# can persist in the systemd --user manager's environment across logins and
+# reboots if the manager isn't fully restarted, causing graphical apps like
+# terminal emulators to launch the wrong shell even after `chsh` succeeds.
+SHELL={{ $fish }}
+{{ end -}}
+{{ end -}}

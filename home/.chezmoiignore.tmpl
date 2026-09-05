@@ -1,7 +1,6 @@
 {{- $archFiles := list
   "arch-install-packages.sh"
   "arch-install-nerd-fonts.sh"
-  ".config/systemd/**"
 -}}
 
 {{- $darwinFiles := list
@@ -26,6 +25,7 @@ fedora-gnome-settings.sh
 fedora-install-nerd-fonts.sh
 .config/fastfetch/**
 .config/environment.d/**
+.config/systemd/**
 {{ range $archFiles }}
 {{ . }}
 {{ end }}

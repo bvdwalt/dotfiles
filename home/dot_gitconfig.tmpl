@@ -15,8 +15,15 @@
 {{ if eq .chezmoi.os "darwin" -}}
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{ else if eq .chezmoi.os "linux" -}}
-	program = "/opt/1Password/op-ssh-sign"
+{{- $opSshSign := "" -}}
+{{- range list "/usr/libexec/op-ssh-sign" "/opt/1Password/op-ssh-sign" -}}
+{{- if and (eq $opSshSign "") (stat .) -}}
+{{- $opSshSign = . -}}
+{{- end -}}
+{{- end -}}
+	program = "{{ $opSshSign }}"
 {{ end -}}
+	allowedSignersFile = ~/.config/git/allowed_signers
 [gpg]
 	format = ssh
 [fetch]

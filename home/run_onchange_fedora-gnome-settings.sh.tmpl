@@ -51,6 +51,10 @@ fi
 # --- Workspaces ---
 gsettings set org.gnome.mutter dynamic-workspaces true
 
+# --- Keybindings ---
+# Add Super+Return as an alternate fullscreen toggle alongside F11
+gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['F11', '<Super>Return']"
+
 # --- Privacy ---
 # Don't keep a list of recently opened files
 gsettings set org.gnome.desktop.privacy remember-recent-files false

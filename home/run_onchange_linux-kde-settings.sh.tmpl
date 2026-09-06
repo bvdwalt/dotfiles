@@ -1,0 +1,24 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+# Applies KDE Plasma settings via kwriteconfig6.
+# This script is re-run by chezmoi whenever its content changes.
+
+set -euo pipefail
+
+if ! command -v kwriteconfig6 &>/dev/null; then
+  echo "kwriteconfig6 not found, skipping KDE settings"
+  exit 0
+fi
+
+echo "Applying KDE settings"
+
+# --- Keybindings ---
+# Add Super+Return as an alternate fullscreen toggle
+kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Window Fullscreen" "Meta+Return,none,Make Window Fullscreen"
+
+# Note: kglobalaccel (built into kwin_wayland on Plasma 6) only reads
+# kglobalshortcutsrc at startup, so this shortcut takes effect after the
+# next login rather than immediately.
+
+echo "KDE settings applied"
+{{ end -}}

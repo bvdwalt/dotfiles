@@ -12,6 +12,7 @@ packages:
         - name: "terra"
           baseurl: "https://repos.fyralabs.com/terra$releasever"
           gpgkey: "https://repos.fyralabs.com/terra$releasever/key.asc"
+          exclude: "1password*"
         - name: "kubernetes"
           baseurl: "https://pkgs.k8s.io/core:/stable:/v1.34/rpm/"
           gpgkey: "https://pkgs.k8s.io/core:/stable:/v1.34/rpm/repodata/repomd.xml.key"
@@ -71,6 +72,7 @@ packages:
       - "trivy"
       - "uv"
       - "wireguard-tools"
+      - "wl-clipboard" # clipboard CLI for Wayland, needed by clippy
       - "yarnpkg"
       - "zen-browser"
       - "zellij"

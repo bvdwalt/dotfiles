@@ -1,0 +1,12 @@
+{{ if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.idLike "fedora") -}}
+#!/bin/bash
+
+echo "Enabling docker.service"
+sudo systemctl enable --now docker.service
+
+if ! groups "$USER" | grep -q '\bdocker\b'; then
+  echo "Adding $USER to the docker group"
+  sudo usermod -aG docker "$USER"
+  echo "Log out and back in (or run 'newgrp docker') for group membership to take effect"
+fi
+{{ end -}}

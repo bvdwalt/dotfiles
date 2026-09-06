@@ -35,6 +35,7 @@ packages:
       - "cowsay"
       - "delta"
       - "direnv"
+      - "docker-compose"
       - "dotnet-sdk-10.0"
       - "emacs"
       - "fd-find" # better find, binary is `fdfind`
@@ -56,6 +57,7 @@ packages:
       - "kustomize"
       - "lazydocker"
       - "lazygit"
+      - "moby-engine"
       - "neovim"
       - "nmap"
       - "nodejs22"

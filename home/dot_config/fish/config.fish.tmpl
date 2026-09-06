@@ -25,6 +25,7 @@ set -gx FZF_DEFAULT_OPTS "--ansi"
 {{ if eq .chezmoi.os "linux" -}}
 fish_add_path ~/.local/bin
 fish_add_path ~/.pulumi/bin
+fish_add_path ~/.bun/bin
 {{ end -}}
 
 # Add cargo/bin for rust

@@ -1,0 +1,30 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+# Downloads and installs Bun for the current user.
+# No Fedora rpm/COPR or Arch package covers Bun, so we use the official
+# install script, pinned to a specific version.
+# Uses run_once so it only runs a single time (tracked by chezmoi state).
+# Update the version below to re-trigger the install on next `chezmoi apply`.
+# BUN_VERSION: 1.2.20
+
+set -euo pipefail
+
+BUN_VERSION="1.2.20"
+BIN_DIR="$HOME/.bun"
+
+if command -v bun &>/dev/null; then
+  echo "bun already installed, skipping"
+  exit 0
+fi
+
+if ! command -v curl &>/dev/null; then
+  echo "curl not found; cannot download bun" >&2
+  exit 1
+fi
+
+echo "Installing bun ${BUN_VERSION}"
+
+curl -fsSL https://bun.sh/install | bash -s "bun-v${BUN_VERSION}"
+
+echo "bun installed to $BIN_DIR/bin/bun"
+{{ end -}}

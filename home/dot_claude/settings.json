@@ -2,5 +2,6 @@
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "agentPushNotifEnabled": true
 }

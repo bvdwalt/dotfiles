@@ -1,9 +1,9 @@
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.idLike "fedora") -}}
 #!/bin/bash
 
 echo "Adding Yum repository keys"
 {{- range .packages.linux.fedoraRepositories.yum }}
-sudo rpm --import {{ .gpgkey }}
+sudo rpm --import {{ replace "$releasever" $.chezmoi.osRelease.versionID .gpgkey }}
 {{- end }}
 
 echo "Adding Yum repositories"

@@ -31,8 +31,8 @@ fedora-install-nerd-fonts.sh
 {{ end }}
 {{- end }}
 
-{{/* Ignore Fedora files on non-Fedora Linux systems */}}
-{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") }}
+{{/* Ignore Fedora files on non-Fedora Linux systems (including Fedora-based like Asahi Remix) */}}
+{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") (ne .chezmoi.osRelease.idLike "fedora") }}
 fedora-install-packages.sh
 {{ end }}
 

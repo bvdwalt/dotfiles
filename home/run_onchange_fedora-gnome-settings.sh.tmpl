@@ -1,4 +1,4 @@
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
+{{ if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.idLike "fedora")) -}}
 #!/bin/bash
 # Applies GNOME desktop settings via gsettings.
 # This script is re-run by chezmoi whenever its content changes.
@@ -7,6 +7,11 @@ set -euo pipefail
 
 if ! command -v gsettings &>/dev/null; then
   echo "gsettings not found, skipping GNOME settings"
+  exit 0
+fi
+
+if ! gsettings list-schemas 2>/dev/null | grep -q '^org.gnome.shell$'; then
+  echo "gnome-shell schema not found (not running GNOME), skipping GNOME settings"
   exit 0
 fi
 

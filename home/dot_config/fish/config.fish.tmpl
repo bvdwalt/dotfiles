@@ -32,6 +32,10 @@ fish_add_path ~/.bun/bin
 fish_add_path ~/.cargo/bin
 
 {{ if eq .chezmoi.os "darwin" -}}
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/bvdwalt/.docker/bin"
+# End of Docker Desktop section.
+
 # PATH configuration for Homebrew and other tools
 # Add Homebrew to PATH first
 fish_add_path /opt/homebrew/bin
@@ -94,3 +98,9 @@ if status is-interactive
     fnm env --use-on-cd | source
 {{ end -}}
 end
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/bvdwalt/.lmstudio/bin
+# End of LM Studio CLI section
+{{ end -}}

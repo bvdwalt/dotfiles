@@ -13,8 +13,10 @@ fi
 echo "Applying KDE settings"
 
 # --- Keybindings ---
-# Add Super+Return as an alternate fullscreen toggle
-kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Window Fullscreen" "Meta+Return,none,Make Window Fullscreen"
+# Add Super+Return as an alternate maximize toggle (stays a normal window:
+# panel visible, can still be un-maximized or tiled left/right), rather than
+# true fullscreen which hides the panel entirely.
+kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Window Maximize" "Meta+Return,none,Maximize Window"
 
 # Note: kglobalaccel (built into kwin_wayland on Plasma 6) only reads
 # kglobalshortcutsrc at startup, so this shortcut takes effect after the

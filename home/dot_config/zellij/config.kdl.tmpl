@@ -202,11 +202,15 @@ keybinds clear-defaults=true {
         bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
         bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
         bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
+        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
+        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
         bind "g" { SwitchToMode "locked"; }
         bind "p" { SwitchToMode "pane"; }
         bind "t" { SwitchToMode "tab"; }
         bind "n" { SwitchToMode "resize"; }
-        bind "h" { SwitchToMode "move"; }
+        bind "m" { SwitchToMode "move"; }
         bind "f" { SwitchToMode "scroll"; }
         bind "s" { SwitchToMode "session"; }
         bind "q" { Quit; }

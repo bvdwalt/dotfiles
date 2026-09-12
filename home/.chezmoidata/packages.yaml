@@ -89,33 +89,25 @@ packages:
     arch:
       # pacman -Qqet
       pacman:
-        - "paru"
         - "dconf"
-        - "gnome-tweaks"
-        - "papirus-icon-theme"
-        - "gnome-shell-extension-appindicator"
-        - "ttf-fira-code"
+        - "fluxcd"
+        - "git-delta"
+        - "zoxide" # better cd
       # pacman -Qqm
-      paru:
+      yay:
         - "1password-cli"
-        - "1password"
+        # "1password" GUI app has no aarch64 build in the AUR; on ARM
+        # machines it's installed separately (e.g. via Omarchy's own
+        # aarch64 tooling) and isn't pacman-tracked here.
         - "atuin"
-        - "blueberry"
-        - "btop"
-        - "delta"
+        - "bun-bin"
         - "fish"
         - "ghostty"
-        - "git"
         - "github-cli"
         - "go"
-        - "jq"
-        - "lazydocker"
-        - "lazygit"
         - "nmap"
-        - "nvim"
         - "obs-studio"
         - "solaar" # Logitech Options alternative
-        - "starship"
         - "tailscale"
         - "visual-studio-code-bin"
         - "yazi"
@@ -123,7 +115,6 @@ packages:
         - "zellij"
         - "cowsay"
         - "fortune-mod"
-        - "zoxide" # better cd
         # - "dolphin"
         # - "gnome-boxes"
         # - "gnome-keyring"

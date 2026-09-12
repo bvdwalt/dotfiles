@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if and (eq .chezmoi.os "linux") (eq (env "XDG_CURRENT_DESKTOP") "KDE") -}}
 #!/bin/bash
 # Applies KDE Plasma settings via kwriteconfig6.
 # This script is re-run by chezmoi whenever its content changes.

@@ -4,6 +4,6 @@
 echo "installing pacman packages"
 sudo pacman -S --needed{{ range .packages.linux.arch.pacman }} {{ . }}{{ end }}
 
-echo "installing paru packages"
-paru -S --needed{{ range .packages.linux.arch.paru }} {{ . }}{{ end }}
+echo "installing yay packages"
+yay -S --needed{{ range .packages.linux.arch.yay }} {{ . }}{{ end }}
 {{ end -}}

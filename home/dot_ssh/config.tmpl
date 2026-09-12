@@ -14,13 +14,13 @@ Host truenas.local
   SetEnv TERM=xterm-256color
 
 Host jump-k8s-dev
-  HostName {{ output "sops" "-d" "--extract" "[\"dev_hostname\"]" (printf "%s/../secrets/jump-hosts.sops.yaml" .chezmoi.sourceDir) | trim }}
+  HostName {{ output "sh" "-c" (printf "sops -d --extract '[\"dev_hostname\"]' %s/../secrets/jump-hosts.sops.yaml 2>/dev/null || echo unresolved.invalid" .chezmoi.sourceDir) | trim }}
   User jumpuser
   IdentityFile ~/.ssh/jumpserver-ssh.pub
   IdentitiesOnly yes
 
 Host jump-k8s-prd
-  HostName {{ output "sops" "-d" "--extract" "[\"prd_hostname\"]" (printf "%s/../secrets/jump-hosts.sops.yaml" .chezmoi.sourceDir) | trim }}
+  HostName {{ output "sh" "-c" (printf "sops -d --extract '[\"prd_hostname\"]' %s/../secrets/jump-hosts.sops.yaml 2>/dev/null || echo unresolved.invalid" .chezmoi.sourceDir) | trim }}
   User jumpuser
   IdentityFile ~/.ssh/jumpserver-ssh.pub
   IdentitiesOnly yes

@@ -101,7 +101,9 @@ packages:
         # aarch64 tooling) and isn't pacman-tracked here.
         - "atuin"
         - "bun-bin"
+        - "cowsay"
         - "fish"
+        - "fortune-mod"
         - "ghostty"
         - "github-cli"
         - "go"
@@ -113,8 +115,6 @@ packages:
         - "yazi"
         - "zen-browser-bin"
         - "zellij"
-        - "cowsay"
-        - "fortune-mod"
         # - "dolphin"
         # - "gnome-boxes"
         # - "gnome-keyring"

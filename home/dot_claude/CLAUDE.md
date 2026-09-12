@@ -26,6 +26,7 @@ Before implementing or searching the codebase, confirm what I'm actually asking 
 # Git
 
 - Do NOT add a `Co-Authored-By: Claude` trailer to commit messages.
+- Do NOT add a `Claude-Session:` link trailer to commit messages or PR descriptions.
 
 # Docker
 

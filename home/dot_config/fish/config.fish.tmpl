@@ -52,6 +52,9 @@ fish_add_path ~/.dotnet/tools
 # 1Password SSH configuration
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
+# sops: fetch the homelab age private key from 1Password instead of keys.txt on disk
+set -gx SOPS_AGE_KEY_CMD 'op read "op://homelab/sops-age-key/notesPlain"'
+
 # Disable fort's update check (no network calls)
 set -gx FORT_NO_UPDATE_CHECK 1
 

@@ -3,12 +3,10 @@ config-version = 2
 start-at-login = true
 after-login-command = []
 
-after-startup-command = ['exec-and-forget sketchybar']
+after-startup-command = []
 
-# Notify Sketchybar about workspace change
-# Also pull Picture-in-Picture windows onto the new workspace (AeroSpace has no sticky windows)
+# Pull Picture-in-Picture windows onto the new workspace (AeroSpace has no sticky windows)
 exec-on-workspace-change = ['/bin/bash', '-c', '''
-sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE
 for id in $(aerospace list-windows --all --format "%{window-id}|%{window-title}" | grep -iE "\|(Picture.in.Picture|PiP)$" | cut -d"|" -f1); do
   aerospace move-node-to-workspace --window-id "$id" "$AEROSPACE_FOCUSED_WORKSPACE"
 done
@@ -26,7 +24,7 @@ default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
-# automatically-unhide-macos-hidden-apps = true
+automatically-unhide-macos-hidden-apps = true
 
 [key-mapping]
     preset = 'qwerty'
@@ -128,25 +126,22 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
-# -------------------- On aerospace startup window detected rules for specific apps --------------------
+# -------------------- Workspace assignment rules for specific apps --------------------
 # run `aerospace list-apps` to see the app-ids.
 # Slack
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     check-further-callbacks = true
     if.app-id = 'com.tinyspeck.slackmacgap'
     run = ['move-node-to-workspace 1']
 
 # Steam
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     check-further-callbacks = true
     if.app-id = 'com.valvesoftware.steam'
     run = ['move-node-to-workspace 5']
 
 # Linear
 [[on-window-detected]]
-    if.during-aerospace-startup = true
     check-further-callbacks = true
     if.app-id = 'com.linear'
     run = ['move-node-to-workspace 3']

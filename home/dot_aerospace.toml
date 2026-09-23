@@ -6,9 +6,13 @@ after-login-command = []
 after-startup-command = ['exec-and-forget sketchybar']
 
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# Also pull Picture-in-Picture windows onto the new workspace (AeroSpace has no sticky windows)
+exec-on-workspace-change = ['/bin/bash', '-c', '''
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE
+for id in $(aerospace list-windows --all --format "%{window-id}|%{window-title}" | grep -iE "\|(Picture.in.Picture|PiP)$" | cut -d"|" -f1); do
+  aerospace move-node-to-workspace --window-id "$id" "$AEROSPACE_FOCUSED_WORKSPACE"
+done
+''']
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -40,7 +44,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
     # App shortcuts
     alt-w = 'exec-and-forget open -a /Applications/Ghostty.app'
-    alt-z = 'exec-and-forget open -a /Applications/Zen.app'
+    alt-z = 'exec-and-forget open -a /Applications/Vivaldi.app'
     alt-s = 'exec-and-forget open -a /Applications/Slack.app'
     alt-v = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'
     alt-r = 'exec-and-forget open -a /Applications/Rider.app'
@@ -197,6 +201,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # Generic Picture-in-Picture windows for all apps
 [[on-window-detected]]
-    if.window-title-regex-substring = '(Picture-in-Picture|PiP)'
+    if.window-title-regex-substring = '(Picture.in.Picture|PiP)'
     run = 'layout floating'
 

@@ -206,12 +206,6 @@ layout = "float"
 titleRegex = "(Picture-in-Picture|PiP)"
 
 [[appRules]]
-bundleId = "app.zen-browser.zen"
-id = "1CF39647-F30D-4E76-9686-79B551F1B094"
-minHeight = 495.0
-minWidth = 500.0
-
-[[appRules]]
 bundleId = "org.mozilla.firefox"
 id = "005C00D3-F665-47F8-BDAE-D80790E9E46B"
 minHeight = 120.0

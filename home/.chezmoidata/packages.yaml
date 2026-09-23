@@ -16,11 +16,13 @@ packages:
         - name: "kubernetes"
           baseurl: "https://pkgs.k8s.io/core:/stable:/v1.34/rpm/"
           gpgkey: "https://pkgs.k8s.io/core:/stable:/v1.34/rpm/repodata/repomd.xml.key"
+        - name: "vivaldi"
+          baseurl: "https://repo.vivaldi.com/archive/rpm/$basearch"
+          gpgkey: "https://repo.vivaldi.com/archive/linux_signing_key.pub"
       copr:
         - "atim/lazydocker"
         - "atim/lazygit"
         - "atim/starship"
-        - "sneexy/zen-browser"
         - "varlad/zellij"
     fedora:
       - "1password-cli"
@@ -73,10 +75,10 @@ packages:
       - "tailscale"
       - "trivy"
       - "uv"
+      - "vivaldi-stable"
       - "wireguard-tools"
       - "wl-clipboard" # clipboard CLI for Wayland, needed by clippy
       - "yarnpkg"
-      - "zen-browser"
       - "zellij"
       - "zig"
       - "zoxide" # better cd
@@ -112,8 +114,8 @@ packages:
         - "solaar" # Logitech Options alternative
         - "tailscale"
         - "visual-studio-code-bin"
+        - "vivaldi"
         - "yazi"
-        - "zen-browser-bin"
         - "zellij"
         # - "dolphin"
         # - "gnome-boxes"
@@ -227,10 +229,10 @@ packages:
       - "tailscale-app"
       - "thaw"
       - "visual-studio-code"
+      - "vivaldi"
       - "wezterm"
       - "whatsapp"
       - "zed"
-      - "zen"
       # work specific
       - "aptakube"
       - "betterdisplay"

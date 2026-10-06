@@ -94,6 +94,8 @@ packages:
         - "dconf"
         - "fluxcd"
         - "git-delta"
+        - "just"
+        - "wl-clipboard" # clipboard CLI for Wayland, needed by clippy
         - "zoxide" # better cd
       # pacman -Qqm
       yay:

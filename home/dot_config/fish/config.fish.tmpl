@@ -87,6 +87,9 @@ if status is-interactive
     # Source custom aliases if they exist
     test -f ~/.custom_aliases; and source ~/.custom_aliases
 
+    # Blobless partial clone
+    abbr -a gcl 'git clone --filter=blob:none'
+
     # zoxide init command for a better cd
     zoxide init fish | source
 

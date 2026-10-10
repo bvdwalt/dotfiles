@@ -220,7 +220,7 @@ packages:
       - "ghostty"
       - "hoppscotch"
       - "iina"
-      - "jellyfin"
+      - "jellyfin-media-player"
       - "jetbrains-toolbox"
       - "localsend"
       - "monitorcontrol"

@@ -11,4 +11,13 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+
+# core formulae are managed by brw (formulae only, no taps or casks)
+if command -v brw >/dev/null 2>&1; then
+  brw update
+  brw upgrade
+  brw install{{ range .packages.darwin.brw }} {{ . | quote }}{{ end }}
+else
+  echo "brw not found, skipping brw-managed formulae" >&2
+fi
 {{ end -}}

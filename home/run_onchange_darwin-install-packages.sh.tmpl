@@ -1,8 +1,7 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew upgrade
-
+echo "==> brew: installing taps and casks"
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
@@ -12,7 +11,12 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
-# core formulae are managed by brw (formulae only, no taps or casks)
+# brew only upgrades what it owns, brw owns the core formulae
+echo "==> brew: upgrading taps and casks"
+brew upgrade --formula{{ range .packages.darwin.brews }} {{ . | quote }}{{ end }}
+brew upgrade --cask
+
+echo "==> brw: managing core formulae"
 if command -v brw >/dev/null 2>&1; then
   brw update
   brw upgrade

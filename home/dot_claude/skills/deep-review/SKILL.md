@@ -1,6 +1,6 @@
 ---
 name: deep-review
-description: Deep, staff engineer style code review of a change — validates business logic and bugs, security, simplicity and architectural fit, and code quality against the repo's own conventions. Use when the user says "deep review", "do a thorough/deep code review", "review my code like a reviewer would", or invokes /deep-review. For a quick lint-style diff pass, use the built-in /code-review instead.
+description: Deep, staff engineer style code review of a change. Validates business logic and bugs, security, simplicity and architectural fit, and code quality against the repo's own conventions. Use when the user says "deep review", "do a thorough/deep code review", "review my code like a reviewer would", or invokes /deep-review. For a quick lint-style diff pass, use the built-in /code-review instead.
 user-invocable: true
 argument-hint: [optional target: paths, commit range, or PR#] [--fix]
 ---
@@ -9,19 +9,19 @@ argument-hint: [optional target: paths, commit range, or PR#] [--fix]
 
 Review a change the way a careful staff engineer would: catch business-logic bugs,
 security problems, unnecessary complexity, poor architectural fit, and code-quality
-issues — not just style. Defer to the repo's own rules (README, CONTRIBUTING, linter
+issues, not just style. Defer to the repo's own rules (README, CONTRIBUTING, linter
 config, any conventions docs it has) so the review never contradicts what the codebase
 already documents.
 
 Complexity, architectural fit, and code quality are usually the most common recurring
-problems — weight the review accordingly. A change that works but adds an abstraction
+problems, so weight the review accordingly. A change that works but adds an abstraction
 nobody needed is a finding, not a pass.
 
 This is the deep review. The built-in `/code-review` is the fast diff pass; do not
-duplicate it — this skill reads full files, judges intent, and pauses to ask when
+duplicate it: this skill reads full files, judges intent, and pauses to ask when
 business logic is unclear.
 
-## Step 1 — Determine what to review
+## Step 1: Determine what to review
 
 Parse the argument, if any:
 
@@ -41,7 +41,7 @@ Parse the argument, if any:
 If there is nothing to review (empty diff), say so and stop.
 
 When reviewing a PR, the description should state the **business problem** the change
-solves — not just what the code does. If the description is missing, empty, or only the
+solves, not just what the code does. If the description is missing, empty, or only the
 unfilled template, ask the author to write one before reviewing. A review without stated
 intent can only check style, and that is what `/code-review` is for.
 
@@ -63,7 +63,7 @@ Your goal is to review the feature that the user intends to build, not the featu
 infer from incomplete information. Never proceed with the review while there is
 uncertainty about the expected behavior.
 
-## Step 2 — Read for context, not just hunks
+## Step 2: Read for context, not just hunks
 
 For every changed file, read the **whole file**, plus the definitions of anything it
 calls that changed behavior depends on. A diff hunk out of context hides most real bugs.
@@ -82,7 +82,7 @@ Judge the shape of the change against the codebase as it is:
   earns its place only by removing real duplication or complexity. Flag abstractions
   introduced for a single call site, or for a future that has not arrived.
 - **Simplest correct solution.** If a shorter, flatter version would be just as correct,
-  that is the version that should be in the PR — say so and sketch it.
+  that is the version that should be in the PR. Say so and sketch it.
 - **Architectural fit.** New code should look like the code around it and sit in the
   module/layer the architecture implies. Flag a change that invents its own pattern next
   to an established one, or that crosses a module boundary the codebase otherwise
@@ -90,10 +90,10 @@ Judge the shape of the change against the codebase as it is:
 
 Before judging quality or security, skim the repo for its own stated conventions (a
 `CONTRIBUTING.md`, `AGENTS.md`/`CLAUDE.md`, a docs/conventions directory, linter/format
-config) and defer to those over the general rules below wherever they conflict — a
+config) and defer to those over the general rules below wherever they conflict: a
 house rule the repo has already written down beats a generic preference.
 
-## Step 3 — Business-logic and bug pass
+## Step 3: Business-logic and bug pass
 
 Read the change as if you have to maintain it. Look for:
 
@@ -108,32 +108,32 @@ Read the change as if you have to maintain it. Look for:
 - Data reaching the wrong layer or module (e.g. domain logic leaking into a
   presentation/API layer, or vice versa).
 
-**When you cannot tell what the code is *supposed* to do — pause and ask the user.**
+**When you cannot tell what the code is *supposed* to do, pause and ask the user.**
 Use a question, wait for the answer, then fold it into the finding. Only pause for
-genuine business-logic ambiguity; never pause for style — just flag it.
+genuine business-logic ambiguity; never pause for style, just flag it.
 
-## Step 4 — Security pass
+## Step 4: Security pass
 
 Work through this OWASP-aligned checklist, adapted to what the change actually touches.
 Report a security finding with `file:line`, the concrete failure scenario (inputs → bad
 outcome), and the fix. Prefer allowlists over denylists in any fix you suggest.
 
-- **Injection — command/subprocess.** Arguments built from untrusted or dynamic input
+- **Injection: command/subprocess.** Arguments built from untrusted or dynamic input
   must be passed as an argument list to the process, never through a shell that
   interpolates a string (e.g. Python `subprocess` with `shell=True`, C#
   `ProcessStartInfo` with `UseShellExecute` and a concatenated command string, Go
   `exec.Command("sh", "-c", ...)`). Flag any shell-invoking call that concatenates
   external input into the command string.
-- **Injection — SQL.** Every query is parameterized. Flag string-formatted SQL and
+- **Injection: SQL.** Every query is parameterized. Flag string-formatted SQL and
   f-string/concatenated queries.
-- **Injection — templates.** Templates that render user-influenced content should use
+- **Injection: templates.** Templates that render user-influenced content should use
   autoescaping; flag rendering from an untrusted raw string, or prompt/HTML built by
   string concatenation (e.g. Python f-strings, C# interpolated strings, Go `fmt.Sprintf`)
   instead of a template.
-- **Injection — NoSQL/operator.** Dicts or objects built from user input can smuggle
+- **Injection: NoSQL/operator.** Dicts or objects built from user input can smuggle
   operators (e.g. `{"$gt": ""}`). Flag unfiltered user-controlled objects flowing into a
   query.
-- **Secrets and credentials.** No hardcoded secrets, API keys, tokens, or passwords —
+- **Secrets and credentials.** No hardcoded secrets, API keys, tokens, or passwords;
   they belong in env vars or a secret store. Flag literals that look like credentials,
   and secrets written to logs, error messages, tracebacks, or telemetry.
 - **Input validation and output handling.** Validate and constrain external input at the
@@ -145,7 +145,7 @@ outcome), and the fix. Prefer allowlists over denylists in any fix you suggest.
   attacker-controlled bytes).
 - **SSRF and outbound requests.** Flag any outbound request whose target host/URL is
   built from untrusted input without an allowlist or scope check.
-- **Access control.** Check authz on new endpoints/handlers — is the caller allowed to
+- **Access control.** Check authz on new endpoints/handlers: is the caller allowed to
   do this to this resource? Flag missing ownership/permission checks.
 - **Dependencies (supply chain).** New third-party imports: is the dependency
   maintained, pinned, and actually needed? Flag unpinned or unnecessary new
@@ -154,8 +154,8 @@ outcome), and the fix. Prefer allowlists over denylists in any fix you suggest.
   `except: pass`-style handling around security-relevant operations, and broad excepts
   that hide auth/validation failures.
 - **New features and integrations.** A new feature's security surface is how it
-  *connects* to what already exists, not just its own diff. Trace the data in and out —
-  where does input come from, where does output flow — and flag any path that crosses a
+  *connects* to what already exists, not just its own diff. Trace the data in and out
+  (where does input come from, where does output flow) and flag any path that crosses a
   trust boundary without that boundary's existing check. If the feature does something
   the repo already guards (auth, rate limiting, scope/allowlisting, sanitization), it
   must go *through* that existing control, not beside it; a parallel path that
@@ -163,24 +163,24 @@ outcome), and the fix. Prefer allowlists over denylists in any fix you suggest.
   change widens for the rest of the system (a raised limit, a new "safe/exempt" list, a
   shared cache/credential) and whether that is intended.
 
-## Step 5 — Code-quality pass
+## Step 5: Code-quality pass
 
-These are general, widely-held preferences — defer to the repo's own conventions
+These are general, widely-held preferences; defer to the repo's own conventions
 (Step 2) wherever they say something different.
 
-- **Naming.** Function/method names should make the action obvious — check what
+- **Naming.** Function/method names should make the action obvious. Check what
   convention the surrounding code already uses (verb-first like `build_x`/`FetchY`,
   or another consistent scheme) and flag names that break it, are misleading, or don't
-  convey what the function does. Variables are plain, readable, and intuitive — flag
+  convey what the function does. Variables are plain, readable, and intuitive; flag
   cryptic abbreviations and single-letter names outside tight loops/comprehensions. One
   term, one concept: flag a new type/field/variable that reuses an existing term for a
   different concept.
 - **Functions.** No one-line functions and no thin wrappers that only call another
-  function with the same or trivially transformed arguments — inline them or don't add
+  function with the same or trivially transformed arguments: inline them or don't add
   them. Prefer early returns; break complex functions into small helpers rather than
   deep nesting.
 - **Doc comments and comments.** Doc comments (docstrings, XML doc comments, Godoc
-  comments, Javadoc, or whatever the language's convention is) are short — they say
+  comments, Javadoc, or whatever the language's convention is) are short: they say
   *what* the function does in plain language, not *how*, and don't restate the code.
   Comments default to none; keep only a short one-line *why* for a genuine non-obvious
   footgun. Flag redundant or over-long comments and doc comments.
@@ -193,7 +193,7 @@ These are general, widely-held preferences — defer to the repo's own conventio
   string-equality dispatch that should be an enum.
 - **Simplicity and architectural fit.** The simplest correct solution wins. Flag
   premature abstraction, speculative generality, and layers introduced for a single call
-  site. New code should follow the pattern already established around it — flag a
+  site. New code should follow the pattern already established around it; flag a
   change that invents a parallel pattern next to an existing one. Flag unrelated
   refactoring bundled into a feature change.
 - **Reuse over reinvention.** If the change reimplements something that already exists
@@ -207,13 +207,13 @@ These are general, widely-held preferences — defer to the repo's own conventio
   the language's standard library, prefer it over reimplementing or overriding it.
 - **General baseline.** Consistent indentation, descriptive names, reasonable line
   length. Don't waste review effort on whitespace/import-order issues a formatter/linter
-  already enforces — focus on design, correctness, security, and the rules above.
+  already enforces. Focus on design, correctness, security, and the rules above.
 
-## Step 6 — Report
+## Step 6: Report
 
 Produce a **severity-ranked report in chat**. Write it in natural prose that a busy
 reviewer can read top to bottom and immediately act on. Use plain, clear language. Do
-not use decorative or dramatic words, filler, or jargon for its own sake — say the plain
+not use decorative or dramatic words, filler, or jargon for its own sake. Say the plain
 thing plainly. Explain each finding as sentences, not as a terse template. Reference a
 code symbol, file, or line directly only when it is the clearest way to point at the
 thing, or when the fix depends on the exact name. Do not turn the report into a wall of
@@ -229,18 +229,18 @@ is wrong with it, so the finding stands on its own.
   say when a dimension has no findings.
 - For each finding, explain what the affected code does when the reader would need that
   to follow along, then cover what is wrong, why it matters, and the suggested fix. Point
-  to a location when there is a concrete one — but architectural or design findings often
+  to a location when there is a concrete one, but architectural or design findings often
   span several places or none in particular, so a file and line are optional, not required.
 - Tag each finding with the action to take:
-  - **auto fix** — mechanical and behavior-preserving; safe to apply without asking.
-  - **ask user** — changes behavior, or depends on intent you had to ask about in Step 3.
+  - **auto fix**: mechanical and behavior-preserving; safe to apply without asking.
+  - **ask user**: changes behavior, or depends on intent you had to ask about in Step 3.
     Never applied without explicit confirmation.
-  - **no op** — worth knowing, but deliberately not fixed here (out of scope, pre-existing,
+  - **no op**: worth knowing, but deliberately not fixed here (out of scope, pre-existing,
     or a judgement call left to the author).
 
 Do not invent findings to pad the report. If the change is clean, say so.
 
-## Step 7 — Fix mode (only if `--fix` was given, or the user asks)
+## Step 7: Fix mode (only if `--fix` was given, or the user asks)
 
 Apply the fixes to the working tree:
 
@@ -251,3 +251,10 @@ Apply the fixes to the working tree:
 - After applying, run whatever check/lint/typecheck commands the repo defines (e.g. from
   its README, CI config, or package scripts) and report their output. Fix any errors the
   fixes introduced before finishing.
+
+## Step 8: Posting to a PR (only if the user asks)
+
+- Post findings as inline comments on specific lines, not one general review body.
+- Each comment is 1 to 3 sentences: the issue, then the suggested fix. No preamble or praise.
+- Show all drafts first and wait for edits. Post as one review with event=COMMENT.
+- Never approve unless the user says "approve". Before approving, check auto-merge is off.

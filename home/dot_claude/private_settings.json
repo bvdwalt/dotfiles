@@ -14,12 +14,32 @@
   },
   "effortLevel": "medium",
   "autoContinueAtUsageLimit": true,
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)", "Bash(git commit:*)", "Bash(git push:*)", "Bash(git worktree:*)",
+      "Bash(gh pr view:*)", "Bash(gh pr checks:*)", "Bash(gh pr diff:*)",
+      "Bash(kubectl get:*)", "Bash(kubectl describe:*)", "Bash(kubectl logs:*)",
+      "Bash(flux get:*)"
+    ],
+    "ask": [
+      "Bash(git cherry-pick:*)",
+      "Bash(kubectl delete:*)", "Bash(kubectl patch:*)", "Bash(flux suspend:*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
         "matcher": "Edit|Write|MultiEdit|Bash",
         "hooks": [
           { "type": "command", "command": "~/.claude/hooks/no-em-dash.sh" }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/check-conventional.sh" },
+          { "type": "command", "command": "~/.claude/hooks/no-gnu-timeout.sh" },
+          { "type": "command", "command": "~/.claude/hooks/lint-before-push.sh", "timeout": 300 }
         ]
       }
     ]

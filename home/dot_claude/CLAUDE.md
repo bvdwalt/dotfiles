@@ -5,7 +5,7 @@ Always draft PR replies, review comments, commit messages, Linear updates, and a
 
 ## Writing Style
 
-Be concise by default. No em dashes. Prefer short paragraphs and bullet lists. For commit messages: one-line subject plus at most 3 bullets. For PR replies and docs: aim for half the length you first think is right, then let me ask for more.
+Be concise by default. Never use em dashes (—) anywhere: chat, code, comments, commit messages, PR text, docs. Use a comma, colon, or parentheses instead. Prefer short paragraphs and bullet lists. For commit messages: one-line subject plus at most 3 bullets. For PR replies and docs: aim for half the length you first think is right, then let me ask for more.
 
 ## How to Start a Task
 
@@ -16,6 +16,7 @@ Before implementing or searching the codebase, confirm what I'm actually asking 
 
 - Do NOT modify existing working code unless explicitly asked. When fixing a bug or adding a feature, limit changes to the specific area requested.
 - Prefer the simplest approach first. Don't add Pydantic validators, complex abstractions, or over-engineered solutions when a simple inline fix suffices. Ask before choosing between approaches if unclear.
+- Code comments: only when the why is non-obvious. One line by default. Never restate what the code does or describe the change ("added X", "now uses Y").
 
 # Workflow
 

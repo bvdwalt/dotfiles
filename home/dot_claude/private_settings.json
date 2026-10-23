@@ -3,13 +3,25 @@
     "commit": "",
     "pr": ""
   },
+  "model": "sonnet",
   "theme": "auto",
   "agentPushNotifEnabled": true,
   "tui": "fullscreen",
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true
   },
   "effortLevel": "medium",
-  "autoContinueAtUsageLimit": true
+  "autoContinueAtUsageLimit": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/no-em-dash.sh" }
+        ]
+      }
+    ]
+  }
 }

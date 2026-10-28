@@ -28,6 +28,21 @@ Before implementing or searching the codebase, confirm what I'm actually asking 
 
 - Do NOT add a `Co-Authored-By: Claude` trailer to commit messages.
 - Do NOT add a `Claude-Session:` link trailer to commit messages or PR descriptions.
+- Keep PRs independent: never cherry-pick commits between PR branches. Ask which PR a change belongs in.
+- PR titles follow Conventional Commits. Only prefix a commit with `NOCC=1` (skips the hook) when I ask for a non-conventional message.
+- Before saying a PR is merged or CI is green, check with `gh pr view` or `gh pr checks`.
+
+# Verification
+
+- Run the linters and type checkers CI uses and quote the actual output before claiming code is clean.
+- For anything that writes to a live system or external data, dry-run first and show me the planned changes.
+
+# Environment
+
+- `brw` is my own Homebrew-compatible client, not a typo for `brew`.
+- macOS: GNU `timeout` isn't installed; use a background job instead.
+- Homelab is Flux-managed Kubernetes: check the kubectl context first, and make changes through homelab repo PRs, not by hand.
+- Frontend: use Tailwind spacing tokens, not arbitrary values like `pl-[42px]`.
 
 # Docker
 

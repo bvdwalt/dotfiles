@@ -16,6 +16,7 @@ Before implementing or searching the codebase, confirm what I'm actually asking 
 
 - Do NOT modify existing working code unless explicitly asked. When fixing a bug or adding a feature, limit changes to the specific area requested.
 - Prefer the simplest approach first. Don't add Pydantic validators, complex abstractions, or over-engineered solutions when a simple inline fix suffices. Ask before choosing between approaches if unclear.
+- Change files with the Edit/Write tools, not python/sed/heredoc scripts. Scripted edits skip review and add permission prompts.
 - Code comments: only when the why is non-obvious. One line by default. Never restate what the code does or describe the change ("added X", "now uses Y").
 
 # Workflow

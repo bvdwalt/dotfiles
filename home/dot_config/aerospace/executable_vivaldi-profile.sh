@@ -16,11 +16,11 @@ if [ -n "$id" ]; then
   exit 0
 fi
 
-before=$(list --all)
+before=$(list --monitor all)
 open -na /Applications/Vivaldi.app --args --profile-directory="$profile"
 for _ in $(seq 20); do
   sleep 0.25
-  new=$(list --all | grep -vxF "$before" | head -1)
+  new=$(list --monitor all | grep -vxF "$before" | head -1)
   if [ -n "$new" ]; then
     aerospace move-node-to-workspace --window-id "$new" "$workspace"
     aerospace workspace "$workspace"

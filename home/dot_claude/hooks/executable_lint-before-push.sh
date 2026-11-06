@@ -13,7 +13,12 @@ if [[ -f go.mod ]] && command -v golangci-lint >/dev/null; then
   golangci-lint run ./... >&2 || fail=1
 fi
 if [[ -f pyproject.toml ]] && grep -q pyrefly pyproject.toml; then
-  uv run pyrefly check >&2 || fail=1
+  pyrefly_args=()
+  # A repo nested in a parent that ignores it (e.g. a worktree under .claude/worktrees/) would match no files.
+  if git -C "$root/.." check-ignore -q "$root" 2>/dev/null; then
+    pyrefly_args+=(--use-ignore-files=false)
+  fi
+  uv run pyrefly check "${pyrefly_args[@]}" >&2 || fail=1
 fi
 if [[ -f tsconfig.json && -x node_modules/.bin/tsc ]]; then
   node_modules/.bin/tsc --noEmit >&2 || fail=1

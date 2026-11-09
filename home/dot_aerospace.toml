@@ -7,7 +7,7 @@ after-startup-command = []
 
 # Pull Picture-in-Picture windows onto the new workspace (AeroSpace has no sticky windows)
 exec-on-workspace-change = ['/bin/bash', '-c', '''
-for id in $(aerospace list-windows --all --format "%{window-id}|%{window-title}" | grep -iE "\|(Picture.in.Picture|PiP)$" | cut -d"|" -f1); do
+for id in $(aerospace list-windows --all --format "%{window-id}|%{window-title}|%{app-bundle-id}" | grep -iE "\|(Picture.in.Picture|PiP)\||\|com\.apple\.FaceTime$" | cut -d"|" -f1); do
   aerospace move-node-to-workspace --window-id "$id" "$AEROSPACE_FOCUSED_WORKSPACE"
 done
 ''']
@@ -193,6 +193,10 @@ automatically-unhide-macos-hidden-apps = true
 # Passwords
 [[on-window-detected]]
     if.app-id = 'com.apple.Passwords'
+    run = 'layout floating'
+# FaceTime (follows workspaces via exec-on-workspace-change)
+[[on-window-detected]]
+    if.app-id = 'com.apple.FaceTime'
     run = 'layout floating'
 
 # Generic Picture-in-Picture windows for all apps

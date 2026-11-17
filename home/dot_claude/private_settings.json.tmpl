@@ -10,11 +10,16 @@
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "mattpocock-skills@claude-plugins-official": true
+    "mattpocock-skills@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "effortLevel": "medium",
   "autoContinueAtUsageLimit": true,
+  "remoteControlAtStartup": false,
   "switchModelsOnFlag": true,
+  "env": {
+    "KUBECONFIG": "{{ .chezmoi.homeDir }}/.kube/altair.yaml"
+  },
   "permissions": {
     "allow": [
       "Bash(git add:*)", "Bash(git commit:*)", "Bash(git worktree:*)",

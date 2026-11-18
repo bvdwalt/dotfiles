@@ -5,10 +5,9 @@
 
 {{- $darwinFiles := list
   "darwin-install-packages.sh"
-  ".config/borders/**"
+  ".config/aerospace/**"
+  ".config/openlogi/**"
   ".config/raycast/**"
-  ".config/sketchybar/**"
-  ".config/starship.toml"
   ".aerospace.toml"
 -}}
 
@@ -33,12 +32,12 @@ fedora-install-nerd-fonts.sh
 {{- end }}
 
 {{/* Ignore Fedora files on non-Fedora Linux systems (including Fedora-based like Asahi Remix) */}}
-{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "fedora") (ne .chezmoi.osRelease.idLike "fedora") }}
+{{ if and (eq .chezmoi.os "linux") (not .isFedora) }}
 fedora-install-packages.sh
 {{ end }}
 
 {{/* Ignore Arch files on non-Arch Linux systems (including Arch-based like CachyOS) */}}
-{{ if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.idLike "arch") }}
+{{ if and (eq .chezmoi.os "linux") (not .isArch) }}
 {{ range $archFiles }}
 {{ . }}
 {{ end }}

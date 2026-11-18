@@ -1,4 +1,14 @@
+{{- /* Plain Arch and Fedora have no ID_LIKE, and derivatives may list several IDs */ -}}
+{{- $osRelease := dict -}}
+{{- if hasKey .chezmoi "osRelease" -}}
+{{-   $osRelease = .chezmoi.osRelease -}}
+{{- end -}}
+{{- $osIds := splitList " " (printf "%s %s" (get $osRelease "id") (get $osRelease "idLike")) -}}
 progress = true
 [git]
     autoCommit = true
     autoPush = false
+
+[data]
+    isArch = {{ has "arch" $osIds }}
+    isFedora = {{ has "fedora" $osIds }}

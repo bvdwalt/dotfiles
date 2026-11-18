@@ -138,7 +138,6 @@ packages:
       - "anomalyco/tap/opencode"
       - "charmbracelet/tap/freeze"
       - "djadmin/tap/fort"
-      - "node@18"
       - "fluxcd/tap/flux"
       - "oven-sh/bun/bun"
     brw:

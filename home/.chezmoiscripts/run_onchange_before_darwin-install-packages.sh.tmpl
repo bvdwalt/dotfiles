@@ -1,8 +1,10 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+set -euo pipefail
 
+# Install only: upgrades live in the pkgup fish function
 echo "==> brew: installing taps and casks"
-brew bundle --file=/dev/stdin <<EOF
+brew bundle --no-upgrade --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -16,15 +18,9 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
-# brew only upgrades what it owns, brw owns the core formulae
-echo "==> brew: upgrading taps and casks"
-brew upgrade --formula{{ range .packages.darwin.brews }} {{ . | quote }}{{ end }}
-brew upgrade --cask
-
-echo "==> brw: managing core formulae"
+echo "==> brw: installing core formulae"
 if command -v brw >/dev/null 2>&1; then
   brw update
-  brw upgrade
   brw install{{ range .packages.darwin.brw }} {{ . | quote }}{{ end }}
 else
   echo "brw not found, skipping brw-managed formulae" >&2

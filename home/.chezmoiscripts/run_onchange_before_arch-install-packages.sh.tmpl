@@ -1,5 +1,6 @@
 {{ if .isArch -}}
 #!/bin/bash
+set -euo pipefail
 
 echo "installing pacman packages"
 sudo pacman -S --needed{{ range .packages.linux.arch.pacman }} {{ . }}{{ end }}

@@ -1,44 +1,18 @@
-{{- $archFiles := list
-  "arch-install-packages.sh"
-  "arch-install-nerd-fonts.sh"
--}}
+{{/* Scripts gate themselves on .chezmoi.os, .isArch and .isFedora, so only files are listed here */}}
 
-{{- $darwinFiles := list
-  "darwin-install-packages.sh"
-  ".config/aerospace/**"
-  ".config/openlogi/**"
-  ".config/raycast/**"
-  ".aerospace.toml"
--}}
-
-{{/* Ignore Darwin files on non-macOS systems */}}
 {{ if ne .chezmoi.os "darwin" }}
-{{ range $darwinFiles }}
-{{ . }}
+.config/aerospace/**
+.config/openlogi/**
+.config/raycast/**
+.aerospace.toml
 {{ end }}
-{{- end }}
 
-{{/* Ignore Linux files on non-Linux systems */}}
 {{ if ne .chezmoi.os "linux" }}
-fedora-install-packages.sh
-fedora-gnome-settings.sh
-fedora-install-nerd-fonts.sh
 .config/fastfetch/**
 .config/environment.d/**
 .config/systemd/**
-{{ range $archFiles }}
-{{ . }}
-{{ end }}
-{{- end }}
-
-{{/* Ignore Fedora files on non-Fedora Linux systems (including Fedora-based like Asahi Remix) */}}
-{{ if and (eq .chezmoi.os "linux") (not .isFedora) }}
-fedora-install-packages.sh
 {{ end }}
 
-{{/* Ignore Arch files on non-Arch Linux systems (including Arch-based like CachyOS) */}}
-{{ if and (eq .chezmoi.os "linux") (not .isArch) }}
-{{ range $archFiles }}
-{{ . }}
+{{ if not .isWork }}
+.config/fish/functions/ghpkg.fish
 {{ end }}
-{{- end }}

@@ -11,8 +11,10 @@ end
 # Architecture flags
 set -gx ARCHFLAGS "-arch $(uname -m)"
 
+{{ if .isWork -}}
 # GitHub Golang private repository setup
 set -gx GOPRIVATE "github.com/hadriansecurity/*"
+{{ end -}}
 
 # Source custom environment variables if they exist
 test -f ~/.extra_env_vars; and source ~/.extra_env_vars

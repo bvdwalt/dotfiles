@@ -17,6 +17,7 @@ layout {
             pane command="lazygit" size="35%"
         }
     }
+{{- if .isWork }}
     tab name="hadrian-platform" cwd="~/src/work/hadrian-platform" {
         pane split_direction="vertical" {
             pane
@@ -29,4 +30,5 @@ layout {
             pane command="lazygit" size="35%"
         }
     }
+{{- end }}
 }

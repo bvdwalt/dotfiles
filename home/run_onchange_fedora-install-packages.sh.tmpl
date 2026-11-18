@@ -1,4 +1,4 @@
-{{ if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.idLike "fedora") -}}
+{{ if .isFedora -}}
 #!/bin/bash
 
 echo "Adding Yum repository keys"

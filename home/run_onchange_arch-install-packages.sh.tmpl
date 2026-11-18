@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ if .isArch -}}
 #!/bin/bash
 
 echo "installing pacman packages"

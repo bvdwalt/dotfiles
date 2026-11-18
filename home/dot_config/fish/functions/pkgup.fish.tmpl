@@ -2,7 +2,7 @@ function pkgup --description "Upgrade installed packages (chezmoi apply only ins
 {{- if eq .chezmoi.os "darwin" }}
     # brew only upgrades what it owns, brw owns the core formulae
     echo "==> brew: upgrading taps and casks"
-    brew upgrade --formula{{ range .packages.darwin.brews }} {{ . | quote }}{{ end }}; or return
+    brew upgrade --formula{{ range .packages.darwin.brews }} {{ . | quote }}{{ end }}{{ if .isWork }}{{ range .packages.darwin.workBrews }} {{ . | quote }}{{ end }}{{ end }}; or return
     brew upgrade --cask; or return
 
     if command -q brw

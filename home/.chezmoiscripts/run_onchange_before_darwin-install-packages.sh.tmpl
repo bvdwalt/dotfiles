@@ -12,6 +12,9 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 {{ if .isWork -}}
+{{ range .packages.darwin.workBrews -}}
+brew {{ . | quote }}
+{{ end -}}
 {{ range .packages.darwin.workCasks -}}
 cask {{ . | quote }}
 {{ end -}}

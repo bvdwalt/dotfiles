@@ -226,7 +226,9 @@ packages:
       - "vivaldi"
       - "whatsapp"
       - "zed"
-    # only installed when isWork is true
+    # workBrews and workCasks are only installed when isWork is true
+    workBrews:
+      - "hadriansecurity/tap/hactl"
     workCasks:
       - "aptakube"
       - "gcloud-cli"

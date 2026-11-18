@@ -139,18 +139,7 @@ automatically-unhide-macos-hidden-apps = true
     if.app-id = 'com.valvesoftware.steam'
     run = ['move-node-to-workspace 5']
 
-# Linear
-[[on-window-detected]]
-    check-further-callbacks = true
-    if.app-id = 'com.linear'
-    run = ['move-node-to-workspace 3']
-
 # -------------------- On window detected rules for specific apps --------------------
-
-# Canary Mail
-[[on-window-detected]]
-    if.app-id = 'io.canarymail.mac'
-    run = 'layout floating'
 
 # Shottr (screenshot tool)
 [[on-window-detected]]

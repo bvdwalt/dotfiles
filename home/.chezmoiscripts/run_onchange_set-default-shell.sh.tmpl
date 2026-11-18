@@ -1,0 +1,32 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/bash
+set -e
+
+FISH_PATH=""
+{{ if eq .chezmoi.os "darwin" -}}
+CANDIDATES="/opt/homebrew/bin/fish /usr/local/bin/fish /usr/bin/fish"
+{{- else -}}
+CANDIDATES="/usr/bin/fish /usr/local/bin/fish /opt/homebrew/bin/fish"
+{{- end }}
+for candidate in $CANDIDATES; do
+    if [ -x "$candidate" ]; then
+        FISH_PATH="$candidate"
+        break
+    fi
+done
+if [ -z "$FISH_PATH" ]; then
+    FISH_PATH=$(command -v fish || true)
+fi
+
+if [ -n "$FISH_PATH" ]; then
+{{- if eq .chezmoi.os "darwin" }}
+    if ! grep -qx "$FISH_PATH" /etc/shells; then
+        echo "$FISH_PATH" | sudo tee -a /etc/shells >/dev/null
+    fi
+{{- end }}
+    if [ "$SHELL" != "$FISH_PATH" ]; then
+        chsh -s "$FISH_PATH"
+        echo "Default shell changed to fish"
+    fi
+fi
+{{ end -}}

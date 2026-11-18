@@ -4,6 +4,7 @@
 {{-   $osRelease = .chezmoi.osRelease -}}
 {{- end -}}
 {{- $osIds := splitList " " (printf "%s %s" (get $osRelease "id") (get $osRelease "idLike")) -}}
+{{- $isWork := promptBoolOnce . "isWork" "Is this a work machine" -}}
 progress = true
 [git]
     autoCommit = true
@@ -12,3 +13,4 @@ progress = true
 [data]
     isArch = {{ has "arch" $osIds }}
     isFedora = {{ has "fedora" $osIds }}
+    isWork = {{ $isWork }}

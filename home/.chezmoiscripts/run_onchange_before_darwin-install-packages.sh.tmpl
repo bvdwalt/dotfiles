@@ -9,6 +9,11 @@ brew {{ . | quote }}
 {{ range .packages.darwin.casks -}}
 cask {{ . | quote }}
 {{ end -}}
+{{ if .isWork -}}
+{{ range .packages.darwin.workCasks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ end -}}
 EOF
 
 # brew only upgrades what it owns, brw owns the core formulae

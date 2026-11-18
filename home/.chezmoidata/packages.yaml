@@ -227,7 +227,8 @@ packages:
       - "vivaldi"
       - "whatsapp"
       - "zed"
-      # work specific
+    # only installed when isWork is true
+    workCasks:
       - "aptakube"
       - "gcloud-cli"
       - "pgadmin4"

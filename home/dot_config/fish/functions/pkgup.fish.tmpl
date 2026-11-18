@@ -1,0 +1,23 @@
+function pkgup --description "Upgrade installed packages (chezmoi apply only installs)"
+{{- if eq .chezmoi.os "darwin" }}
+    # brew only upgrades what it owns, brw owns the core formulae
+    echo "==> brew: upgrading taps and casks"
+    brew upgrade --formula{{ range .packages.darwin.brews }} {{ . | quote }}{{ end }}; or return
+    brew upgrade --cask; or return
+
+    if command -q brw
+        echo "==> brw: upgrading core formulae"
+        brw update; or return
+        brw upgrade
+    else
+        echo "brw not found, skipping core formulae" >&2
+    end
+{{- else if .isFedora }}
+    sudo dnf upgrade
+{{- else if .isArch }}
+    yay -Syu
+{{- else }}
+    echo "pkgup: unsupported platform" >&2
+    return 1
+{{- end }}
+end

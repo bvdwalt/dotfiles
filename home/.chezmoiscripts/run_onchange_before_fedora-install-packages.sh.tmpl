@@ -1,5 +1,6 @@
 {{ if .isFedora -}}
 #!/bin/bash
+set -euo pipefail
 
 echo "Adding Yum repository keys"
 {{- range .packages.linux.fedoraRepositories.yum }}

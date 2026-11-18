@@ -7,8 +7,15 @@
 {{- $isWork := promptBoolOnce . "isWork" "Is this a work machine" -}}
 progress = true
 [git]
-    autoCommit = true
+    autoCommit = false
     autoPush = false
+
+[diff]
+    pager = "delta"
+
+[merge]
+    command = "nvim"
+    args = ["-d", {{ printf "%q" "{{ .Destination }}" }}, {{ printf "%q" "{{ .Source }}" }}, {{ printf "%q" "{{ .Target }}" }}]
 
 [data]
     isArch = {{ has "arch" $osIds }}

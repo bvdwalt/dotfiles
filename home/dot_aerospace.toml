@@ -41,7 +41,7 @@ automatically-unhide-macos-hidden-apps = true
 [mode.main.binding]
 
     # App shortcuts
-    alt-w = 'exec-and-forget open -a /Applications/Ghostty.app'
+    alt-w = 'exec-and-forget open -a /Applications/Rex.app'
     alt-z = 'exec-and-forget ~/.config/aerospace/vivaldi-profile.sh "Default" 2'
     alt-shift-z = 'exec-and-forget ~/.config/aerospace/vivaldi-profile.sh "Profile 1" 4'
     alt-s = 'exec-and-forget open -a /Applications/Slack.app'

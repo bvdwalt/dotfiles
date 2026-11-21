@@ -35,6 +35,7 @@ Report stale worktrees and Claude-created branches, propose an action for each, 
 1. Show one table per repo: path, branch, state, PR number, last commit, proposed action.
    - Prunable: `git worktree prune`
    - Merged: `git worktree remove <path>` (if a worktree) then `git branch -D <branch>`, only after confirming the merge: `git merge-base --is-ancestor <branch> origin/<default>` succeeds, or a merged PR exists. Don't use `-d`: it compares against local `<default>`, which is often behind `origin`.
+   - Merged but checked out in the main worktree: `git switch <default> && git pull --ff-only` there first, then delete. Untracked files carry over; if tracked files are modified, keep and flag instead.
    - Dirty, Unpushed, Unknown: keep, with a one-line reason
 2. Ask the user to confirm, or to name which rows to include or skip. Wait for explicit approval.
 3. Once confirmed, run the approved actions. Never use `git worktree remove --force` or delete a Dirty or Unpushed branch, even if asked in bulk; ask again per item.

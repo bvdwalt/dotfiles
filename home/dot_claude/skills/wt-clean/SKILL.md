@@ -17,9 +17,9 @@ Report stale worktrees and Claude-created branches, propose an action for each, 
 1. Per repo, run in parallel:
    - `git fetch --prune --quiet`
    - `git worktree list --porcelain`
-   - `git for-each-ref --format='%(refname:short) %(committerdate:relative) %(upstream:track)' refs/heads/claude/ refs/heads/worktree-`
+   - `git for-each-ref --format='%(refname:short) %(committerdate:relative) %(upstream:track)' refs/heads/`
    - Default branch: `git symbolic-ref --short refs/remotes/origin/HEAD` (strip `origin/`; fall back to `main`)
-2. Candidates are every non-main worktree plus every `claude/*` and `worktree-*` branch, deduplicated by branch.
+2. Candidates are every non-main worktree, every `claude/*` and `worktree-*` branch, and any other branch whose upstream is `[gone]` (deleted on the remote, usually after a PR merge), deduplicated by branch.
 3. Classify each candidate, first match wins:
    - **Current**: the worktree this session runs in. Always skip.
    - **Prunable**: worktree directory no longer exists (porcelain shows `prunable`, or the path is missing).

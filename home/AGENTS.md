@@ -16,6 +16,15 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 
 - Do NOT modify existing working code unless explicitly asked. When fixing a bug or adding a feature, limit changes to the specific area requested.
 - Prefer the simplest approach first. Don't add Pydantic validators, complex abstractions, or over-engineered solutions when a simple inline fix works. Ask before choosing between approaches if unclear.
+- Run the formatter, linter and tests that CI runs before calling work done. Enable the repo's git hooks once per clone if it has them.
+- Tests use temp directories, never real system paths. Anything that touches real user data needs my approval first and must be undoable.
+
+# Code style
+
+- Comment only what the code can't say. Don't write a comment or doc comment that restates a name or type, unless the package is a public API.
+- Don't encode state in a nil pointer or an in-band sentinel such as `*bool`, `-1` or "zero means now". Use an explicit value, an enum or a set.
+- Name flag and magic number literals instead of writing `0x2`.
+- Run `/pstack:no-comments` on a branch's diff before opening a PR.
 
 # Workflow
 
@@ -25,7 +34,10 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 
 # Git
 
-- Do NOT add a `Co-Authored-By: Codex` trailer to commit messages.
+- Commit subjects follow Conventional Commits, 72 characters at most. Add no trailers.
+- Commit with `git commit --only <paths>` so the commit includes only those paths.
+- Messages say what the change does, not how it was tidied.
+- Local notes stay untracked.
 
 # Docker
 

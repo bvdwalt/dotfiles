@@ -1,12 +1,116 @@
 {
+  "env": {
+    "KUBECONFIG": "{{ .chezmoi.homeDir }}/.kube/altair.yaml"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git worktree:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh run watch *)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl describe:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(flux get:*)",
+      "Bash(kubectl --context altair get *)",
+      "Bash(kubectl --context altair logs *)",
+      "Bash(kubectl --context altair top *)",
+      "Bash(kubectl --context altair describe *)",
+      "Bash(flux --context altair get *)",
+      "Bash(go test *)",
+      "Bash(go build *)",
+      "Bash(go vet *)",
+      "Bash(gofmt -l *)",
+      "Bash(golangci-lint run *)",
+      "Bash(npx svelte-check *)",
+      "Bash(npx vitest *)",
+      "Bash(helm template *)",
+      "Bash(helm lint *)",
+      "mcp__Claude_Browser__find",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__read_network_requests",
+      "mcp__ccd_pr__get_status"
+    ],
+    "ask": [
+      "Bash(git cherry-pick:*)",
+      "Bash(git push:*)",
+      "Bash(kubectl delete:*)",
+      "Bash(kubectl patch:*)",
+      "Bash(flux suspend:*)",
+      "Bash(kubectl exec:*)",
+      "Bash(kubectl --context altair exec *)",
+      "Bash(kubectl --context altair annotate *)",
+      "Bash(kubectl --context altair apply *)",
+      "Bash(kubectl --context altair port-forward *)",
+      "Bash(kubectl --context altair delete *)",
+      "Bash(gh api:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(gh pr review:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh issue comment:*)",
+      "Bash(docker run:*)",
+      "Bash(go run:*)",
+      "Bash(just:*)"
+    ]
+  },
   "model": "sonnet",
-  "theme": "auto",
-  "agentPushNotifEnabled": true,
-  "tui": "fullscreen",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/no-em-dash.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/guard-deletes.py",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/check-conventional.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/no-gnu-timeout.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/lint-before-push.sh",
+            "timeout": 300
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
@@ -16,67 +120,17 @@
   },
   "extraKnownMarketplaces": {
     "cursor-plugins": {
-      "source": { "source": "github", "repo": "cursor/plugins" }
+      "source": {
+        "source": "github",
+        "repo": "cursor/plugins"
+      }
     }
   },
   "effortLevel": "medium",
+  "tui": "fullscreen",
+  "theme": "auto",
+  "switchModelsOnFlag": true,
   "autoContinueAtUsageLimit": true,
   "remoteControlAtStartup": false,
-  "switchModelsOnFlag": true,
-  "env": {
-    "KUBECONFIG": "{{ .chezmoi.homeDir }}/.kube/altair.yaml"
-  },
-  "permissions": {
-    "allow": [
-      "Bash(git add:*)", "Bash(git commit:*)", "Bash(git worktree:*)",
-      "Bash(gh pr view:*)", "Bash(gh pr checks:*)", "Bash(gh pr diff:*)", "Bash(gh run watch *)",
-      "Bash(kubectl get:*)", "Bash(kubectl describe:*)", "Bash(kubectl logs:*)",
-      "Bash(flux get:*)",
-      "Bash(kubectl --context altair get *)", "Bash(kubectl --context altair logs *)",
-      "Bash(kubectl --context altair top *)", "Bash(kubectl --context altair describe *)",
-      "Bash(flux --context altair get *)",
-      "Bash(go test *)", "Bash(go build *)", "Bash(go vet *)", "Bash(gofmt -l *)",
-      "Bash(golangci-lint run *)", "Bash(npx svelte-check *)", "Bash(npx vitest *)",
-      "Bash(helm template *)", "Bash(helm lint *)",
-      "mcp__Claude_Browser__find", "mcp__Claude_Browser__get_page_text",
-      "mcp__Claude_Browser__read_console_messages", "mcp__Claude_Browser__read_network_requests",
-      "mcp__ccd_pr__get_status"
-    ],
-    "ask": [
-      "Bash(git cherry-pick:*)", "Bash(git push:*)",
-      "Bash(kubectl delete:*)", "Bash(kubectl patch:*)", "Bash(flux suspend:*)",
-      "Bash(kubectl exec:*)", "Bash(kubectl --context altair exec *)",
-      "Bash(kubectl --context altair annotate *)", "Bash(kubectl --context altair apply *)",
-      "Bash(kubectl --context altair port-forward *)", "Bash(kubectl --context altair delete *)",
-      "Bash(gh api:*)", "Bash(gh pr comment:*)", "Bash(gh pr review:*)", "Bash(gh pr edit:*)",
-      "Bash(gh pr create:*)", "Bash(gh pr merge:*)", "Bash(gh issue comment:*)",
-      "Bash(docker run:*)", "Bash(go run:*)", "Bash(just:*)"
-    ]
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write|MultiEdit|Bash",
-        "hooks": [
-          { "type": "command", "command": "~/.claude/hooks/no-em-dash.sh" }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          { "type": "command", "command": "~/.claude/hooks/guard-deletes.py", "timeout": 30 },
-          { "type": "command", "command": "~/.claude/hooks/check-conventional.sh" },
-          { "type": "command", "command": "~/.claude/hooks/no-gnu-timeout.sh" },
-          { "type": "command", "command": "~/.claude/hooks/lint-before-push.sh", "timeout": 300 }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          { "type": "command", "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'", "timeout": 5 }
-        ]
-      }
-    ]
-  }
+  "agentPushNotifEnabled": true
 }

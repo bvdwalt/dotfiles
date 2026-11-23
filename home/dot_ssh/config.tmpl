@@ -3,6 +3,11 @@ Host raspi raspi.local
   IdentityFile ~/.ssh/raspberrypi.pub
   IdentitiesOnly yes
 
+Host github.com
+  ControlMaster auto
+  ControlPath ~/.ssh/cm-%C
+  ControlPersist 60s
+
 Host gitea.greedo.net
   Port 222
   IdentityFile ~/.ssh/gitea.pub

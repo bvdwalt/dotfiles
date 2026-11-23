@@ -29,7 +29,10 @@
 [fetch]
 	prune = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+	pushInsteadOf = https://github.com/
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
 [url "git@gitea.greedo.net:"]
 	insteadOf = https://gitea.greedo.net/
 [pull]

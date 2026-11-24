@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Blocks file edits done through shell scripts. Exit 2 returns stderr to Claude.
 cmd=$(jq -r '.tool_input.command // empty')
+# Message and body arguments may mention these commands without running them.
+cmd=$(perl -0777 -pe "s/(?:^|\s)(?:-m|--message|--body|--title|-b|-t)\s+(?:\"(?:[^\"\\\\]|\\\\.)*\"|'[^']*')/ /g" <<<"$cmd")
 
 block() {
   echo "Scripted file edit ($1). Change files with the Edit or Write tool. Writes under /tmp or /private/tmp are allowed." >&2

@@ -67,7 +67,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit|Bash",
+        "matcher": "Edit|Write|MultiEdit|Bash|mcp__claude_ai_Linear__save_.*",
         "hooks": [
           {
             "type": "command",
@@ -90,6 +90,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/no-gnu-timeout.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/no-scripted-edits.sh"
           },
           {
             "type": "command",

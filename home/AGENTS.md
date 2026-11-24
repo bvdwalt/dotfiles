@@ -32,6 +32,7 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 - Before making any changes, explain your hypothesis for the root cause and the evidence for it. Wait for confirmation before editing code.
 - When asked to implement something, read the relevant code and propose a plan that names each file to change and the approach for it. Don't write any code until I approve the plan.
 - When fixing a bug, first write a test that reproduces it and verify it fails. Then fix the code and verify the test passes. Do not modify any code that the failing test doesn't exercise.
+- When a subagent implements a change, its brief requires it to quote the failing test output before the fix. Check that output before accepting the work.
 
 # Git
 
@@ -60,3 +61,19 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 
 - Use `host.docker.internal` instead of `localhost` to reach the host from a container on macOS and Windows.
 - Always check that the Go version works with the target base image.
+
+# Rules and what enforces them
+
+When I correct a mistake, add or update its row. If the rule was already here with nothing enforcing it, enforce it in the same change. Drop a row once its mistake can't happen.
+
+| Rule | Enforced by |
+| --- | --- |
+| No em or en dashes in commits, PR text, gh comments or Linear posts | `~/.claude/hooks/no-em-dash.sh` blocks the call |
+| Change files with Edit or Write, not `sed -i`, `perl -i`, python writes or heredocs | `~/.claude/hooks/no-scripted-edits.sh` blocks the call |
+| Commit and branch only from a worktree | `~/.claude/hooks/primary-checkout.sh` |
+| Conventional Commits subjects | `~/.claude/hooks/check-conventional.sh` |
+| No GNU `timeout` | `~/.claude/hooks/no-gnu-timeout.sh` |
+| Show drafts before posting or pushing | `ask` permissions on `git push`, `gh pr create/edit/comment/review` and `gh api` |
+| hadrian-platform needs .NET SDK 10 | SessionStart hook in `~/src/work/.agents/.claude/settings.local.json` sets `DOTNET_ROOT` and `PATH` |
+| Failing test first, including in subagent briefs | Nothing. It's a judgment call. |
+| Run `/pstack:no-comments` before a PR | Nothing. It's a judgment call. |

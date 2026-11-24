@@ -35,6 +35,7 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 # Git
 
 - Commit subjects follow Conventional Commits, 72 characters at most. Add no trailers.
+- Commit and branch from a git worktree, never the primary checkout, because other sessions may share it. A user-level hook blocks `git commit`, `git checkout -b` and `git switch -c` there.
 - Commit with `git commit --only <paths>` so the commit includes only those paths.
 - Messages say what the change does, not how it was tidied.
 - Local notes stay untracked.

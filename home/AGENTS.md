@@ -44,6 +44,7 @@ Before implementing or searching the codebase, confirm what I'm asking for. It's
 - Keep PRs independent. Never cherry-pick commits between PR branches. Ask which PR a change belongs in.
 - PR titles follow Conventional Commits. The `NOCC=1` prefix skips the commit hook. Use it only when I ask for a non-conventional message.
 - Before saying a PR is merged or CI is green, check with `gh pr view` or `gh pr checks`.
+- Run `git push` and `gh pr create/edit/comment/merge` as their own Bash call, not chained after checks or `cd`, so my approval prompt shows only that action.
 
 # Verification
 
@@ -73,7 +74,8 @@ When I correct a mistake, add or update its row. If the rule was already here wi
 | Commit and branch only from a worktree | `~/.claude/hooks/primary-checkout.sh` |
 | Conventional Commits subjects | `~/.claude/hooks/check-conventional.sh` |
 | No GNU `timeout` | `~/.claude/hooks/no-gnu-timeout.sh` |
-| Show drafts before posting or pushing | `ask` permissions on `git push`, `gh pr create/edit/comment/review` and `gh api` |
+| Show drafts before posting or pushing | `ask` permissions on `git push`, `gh pr create/edit/comment/review` and `gh api` writes |
+| Push and PR commands run as their own Bash call | Nothing. It's a judgment call. |
 | hadrian-platform needs .NET SDK 10 | SessionStart hook in `~/src/work/.agents/.claude/settings.local.json` sets `DOTNET_ROOT` and `PATH` |
 | Failing test first, including in subagent briefs | Nothing. It's a judgment call. |
 | Run `/pstack:no-comments` before a PR | Nothing. It's a judgment call. |
